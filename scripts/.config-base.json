@@ -1,1 +1,25 @@
-{}
+{
+  "siteConfig": {
+    "title": {
+      "el": "",
+      "en": ""
+    },
+    "description": {
+      "el": "",
+      "en": ""
+    },
+    "language": "",
+    "keywords": {
+      "el": "",
+      "en": ""
+    },
+    "ogImage": "",
+    "canonical": "",
+    "siteId": "",
+    "apiUrl": ""
+  },
+  "digitalProductsConfig": {
+    "enabled": false,
+    "products": []
+  }
+}
