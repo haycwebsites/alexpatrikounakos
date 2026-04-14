@@ -248,77 +248,52 @@ export const digitalProductsConfig: DigitalProductsConfig = {
   products: [],
 };
 
-const siteRoot = 'https://alexispatrikounakos.gr';
-
-/** In-app route for the Reiki service page (matches WP slug). */
-export const reikiSessionsPath = '/ατομικές-συνεδρίες-reiki';
-
-/** In-app route for individual self-awareness sessions (matches WP slug). */
-export const selfAwarenessSessionsPath = '/ατομικές-συνεδρίες-αυτογνωσίας';
-
-/** In-app route for Cacao Ceremony (matches WP slug). */
-export const cacaoCeremonyPath = '/cacao-ceremony';
-
-/** In-app route for Dance With Your Heart (matches WP slug). */
-export const danceWithYourHeartPath = '/dance-with-your-heart';
-
-/** In-app route for group meditation & sharing (matches WP slug). */
-export const groupMeditationPath = '/ομαδικός-διαλογισμός';
-
-/** In-app route for seminars (matches WP slug). */
-export const seminarsPath = '/σεμινάρια-αυτογνωσίας';
-
 export const navigationConfig: NavigationConfig = {
   brandName: { el: 'Alexis Patrikounakos', en: 'Alexis Patrikounakos' },
-  brandHref: '/',
-  socialFacebookHref:
-    'https://www.facebook.com/profile.php?id=100077095013637',
-  socialInstagramHref:
-    'https://www.instagram.com/alexis_patrikounakos?igsh=MXZhbmMycWpkdHRpZQ==',
+  brandHref: 'https://alexispatrikounakos.gr/',
+  socialFacebookHref: 'https://www.facebook.com/profile.php?id=100077095013637',
+  socialInstagramHref: 'https://www.instagram.com/alexis_patrikounakos?igsh=MXZhbmMycWpkdHRpZQ==',
   socialFacebookAria: { el: 'Facebook', en: 'Facebook' },
   socialInstagramAria: { el: 'Instagram', en: 'Instagram' },
-  home: { label: { el: 'Αρχικη', en: 'Home' }, href: '/' },
+  home: {
+    label: { el: 'Αρχικη', en: 'Home' },
+    href: 'https://alexispatrikounakos.gr/',
+  },
   servicesToggle: { el: 'Υπηρεσιες', en: 'Services' },
   services: [
     {
-      label: {
-        el: 'Ατομικες Συνεδριες Αυτογνωσιας',
-        en: 'Individual self-awareness sessions',
-      },
-      href: selfAwarenessSessionsPath,
+      label: { el: 'Ατομικες Συνεδριες Αυτογνωσιας', en: 'Individual self-awareness sessions' },
+      href: '/ατομικές-συνεδρίες-αυτογνωσίας',
     },
     {
-      label: {
-        el: 'Ατομικες Συνεδριες Reiki',
-        en: 'Individual Reiki sessions',
-      },
-      href: reikiSessionsPath,
+      label: { el: 'Ατομικες Συνεδριες Reiki', en: 'Individual Reiki sessions' },
+      href: '/ατομικές-συνεδρίες-reiki',
     },
     {
-      label: {
-        el: 'Ομαδικος Διαλογισμος & Μοιρασμα',
-        en: 'Group meditation & sharing',
-      },
-      href: groupMeditationPath,
+      label: { el: 'Ομαδικος Διαλογισμος & Μοιρασμα', en: 'Group meditation & sharing' },
+      href: '/ομαδικός-διαλογισμός',
     },
     {
       label: { el: 'Cacao Ceremony', en: 'Cacao ceremony' },
-      href: cacaoCeremonyPath,
+      href: '/cacao-ceremony',
     },
     {
-      label: {
-        el: 'Ομαδες / Σεμιναρια Αυτογνωσιας και Προσωπικης Αναπτυξης',
-        en: 'Groups / seminars on self-awareness & personal growth',
-      },
-      href: seminarsPath,
+      label: { el: 'Ομαδες / Σεμιναρια Αυτογνωσιας και Προσωπικης Αναπτυξης', en: 'Groups / seminars on self-awareness & personal growth' },
+      href: '/σεμινάρια-αυτογνωσίας',
     },
     {
       label: { el: 'Dance With Your Heart', en: 'Dance With Your Heart' },
-      href: danceWithYourHeartPath,
+      href: '/dance-with-your-heart',
     },
   ],
-  about: { label: { el: 'Για Εμενα', en: 'About me' }, href: '/#about' },
-  events: { label: { el: 'Events', en: 'Events' }, href: '/events' },
+  about: {
+    label: { el: 'Για Εμενα', en: 'About me' },
+    href: '/#about',
+  },
+  events: {
+    label: { el: 'Events', en: 'Events' },
+    href: '/events',
+  },
   contactCta: {
     label: { el: 'Επικοινωνια', en: 'Contact' },
     href: '/#contact',
@@ -329,37 +304,25 @@ export const navigationConfig: NavigationConfig = {
 
 export const footerConfig: FooterConfig = {
   brandName: { el: 'Αlexis Patrikounakos', en: 'Alexis Patrikounakos' },
-  brandHref: `${siteRoot}/`,
+  brandHref: 'https://alexispatrikounakos.gr/',
   privacyPolicyLabel: { el: 'Πολιτική Απορρήτου', en: 'Privacy policy' },
-  privacyPolicyHref: `${siteRoot}/privacy-policy/`,
-  contactEmail: {
-    el: 'info@alexispatrikounakos.gr',
-    en: 'info@alexispatrikounakos.gr',
-  },
+  privacyPolicyHref: 'https://alexispatrikounakos.gr/privacy-policy/',
+  contactEmail: { el: 'info@alexispatrikounakos.gr', en: 'info@alexispatrikounakos.gr' },
   locationLine: { el: 'Αθήνα', en: 'Athens' },
   phoneDisplay: { el: '6984557648', en: '6984557648' },
   phoneTel: '+306984557648',
-  copyrightNotice: {
-    el: 'Copyright © 2026 All Right Reserved.',
-    en: 'Copyright © 2026 All Right Reserved.',
-  },
-  creditMadeBy: { el: 'Made by', en: 'Made by' },
+  copyrightNotice: { el: 'Copyright © 2026 All Right Reserved.', en: 'Copyright © 2026 All Right Reserved.' },
+  creditMadeBy: { el: 'Κατασκευή από', en: 'Made by' },
   creditVendorName: { el: 'hayc', en: 'hayc' },
   creditVendorHref: 'https://hayc.gr/',
-  creditMadeWith: { el: 'with 💙', en: 'with 💙' },
+  creditMadeWith: { el: 'με 💙', en: 'with 💙' },
 };
 
 export const homePageConfig: HomePageConfig = {
   intro: {
-    backgroundImage: `${siteRoot}/wp-content/uploads/2025/12/%CE%9A%CE%91%CE%9B%CE%A9%CE%A3%CE%9F%CE%A1%CE%99%CE%A3%CE%9C%CE%91_noHYxv-1.webp`,
-    headline: {
-      el: 'Ανακάλυψε την αυθεντική σου ενέργεια.',
-      en: 'Discover your authentic energy.',
-    },
-    subline: {
-      el: 'Απελευθέρωσε το σώμα σου, θεράπευσε την ψυχή σου.',
-      en: 'Free your body, heal your soul.',
-    },
+    backgroundImage: 'https://alexispatrikounakos.gr/wp-content/uploads/2025/12/%CE%9A%CE%91%CE%9B%CE%A9%CE%A3%CE%9F%CE%A1%CE%99%CE%A3%CE%9C%CE%91_noHYxv-1.webp',
+    headline: { el: 'Ανακάλυψε την αυθεντική σου ενέργεια.', en: 'Discover your authentic energy.' },
+    subline: { el: 'Απελευθέρωσε το σώμα σου, θεράπευσε την ψυχή σου.', en: 'Free your body, heal your soul.' },
     ctaLabel: { el: 'Περισσοτερα', en: 'More' },
     ctaHref: '#services',
   },
@@ -367,119 +330,65 @@ export const homePageConfig: HomePageConfig = {
     moreButtonLabel: { el: 'Περισσοτερα', en: 'More' },
     cards: [
       {
-        image: `${siteRoot}/wp-content/uploads/2025/12/%CE%91%CF%85%CF%84%CE%BF%CE%B3%CE%BD%CF%89%CF%83%CE%B9%CE%B1-1_noHYxv-1-scaled.webp`,
-        imageAlt: {
-          el: 'Ατομικές συνεδρίες αυτογνωσίας',
-          en: 'Individual self-awareness sessions',
-        },
-        title: {
-          el: 'Ατομικές Συνεδρίες Αυτογνωσίας',
-          en: 'Individual self-awareness sessions',
-        },
-        description: {
-          el: 'Καθοδήγηση για βαθύτερη κατανόηση του εαυτού.',
-          en: 'Guidance for a deeper understanding of yourself.',
-        },
-        href: selfAwarenessSessionsPath,
+        image: 'https://alexispatrikounakos.gr/wp-content/uploads/2025/12/%CE%91%CF%85%CF%84%CE%BF%CE%B3%CE%BD%CF%89%CF%83%CE%B9%CE%B1-1_noHYxv-1-scaled.webp',
+        imageAlt: { el: 'Ατομικές συνεδρίες αυτογνωσίας', en: 'Individual self-awareness sessions' },
+        title: { el: 'Ατομικές Συνεδρίες Αυτογνωσίας', en: 'Individual self-awareness sessions' },
+        description: { el: 'Καθοδήγηση για βαθύτερη κατανόηση του εαυτού.', en: 'Guidance for a deeper understanding of yourself.' },
+        href: '/ατομικές-συνεδρίες-αυτογνωσίας',
       },
       {
-        image: `${siteRoot}/wp-content/uploads/2025/12/zvyxgjjz6zygorjs8nvf-scaled.jpg`,
-        imageAlt: {
-          el: 'Ατομικές συνεδρίες Reiki',
-          en: 'Individual Reiki sessions',
-        },
-        title: {
-          el: 'Ατομικές Συνεδρίες Reiki',
-          en: 'Individual Reiki sessions',
-        },
-        description: {
-          el: 'Ενεργειακή ευθυγράμμιση για ισορροπία και χαλάρωση.',
-          en: 'Energetic alignment for balance and relaxation.',
-        },
-        href: reikiSessionsPath,
+        image: 'https://alexispatrikounakos.gr/wp-content/uploads/2025/12/zvyxgjjz6zygorjs8nvf-scaled.jpg',
+        imageAlt: { el: 'Ατομικές συνεδρίες Reiki', en: 'Individual Reiki sessions' },
+        title: { el: 'Ατομικές Συνεδρίες Reiki', en: 'Individual Reiki sessions' },
+        description: { el: 'Ενεργειακή ευθυγράμμιση για ισορροπία και χαλάρωση.', en: 'Energetic alignment for balance and relaxation.' },
+        href: '/ατομικές-συνεδρίες-reiki',
       },
       {
-        image: `${siteRoot}/wp-content/uploads/2025/12/zmk2lag7urfafcq1qjat-scaled.jpg`,
-        imageAlt: {
-          el: 'Ομαδικός διαλογισμός και μοίρασμα',
-          en: 'Group meditation and sharing',
-        },
-        title: {
-          el: 'Ομαδικός Διαλογισμός & Μοίρασμα',
-          en: 'Group meditation & sharing',
-        },
-        description: {
-          el: 'Κοινή πρακτική σύνδεσης, ηρεμίας και αλληλοϋποστήριξης.',
-          en: 'A shared practice of connection, calm, and mutual support.',
-        },
-        href: groupMeditationPath,
+        image: 'https://alexispatrikounakos.gr/wp-content/uploads/2025/12/zmk2lag7urfafcq1qjat-scaled.jpg',
+        imageAlt: { el: 'Ομαδικός διαλογισμός και μοίρασμα', en: 'Group meditation and sharing' },
+        title: { el: 'Ομαδικός Διαλογισμός & Μοίρασμα', en: 'Group meditation & sharing' },
+        description: { el: 'Κοινή πρακτική σύνδεσης, ηρεμίας και αλληλοϋποστήριξης.', en: 'A shared practice of connection, calm, and mutual support.' },
+        href: '/ομαδικός-διαλογισμός',
         cardDetailExtraClass: 'text-black',
       },
       {
-        image: `${siteRoot}/wp-content/uploads/2026/01/gsseslandqygvaj4nbxx-scaled.webp`,
+        image: 'https://alexispatrikounakos.gr/wp-content/uploads/2026/01/gsseslandqygvaj4nbxx-scaled.webp',
         imageAlt: { el: 'Cacao ceremony', en: 'Cacao ceremony' },
         title: { el: 'Cacao Ceremony', en: 'Cacao ceremony' },
-        description: {
-          el: 'Τελετουργική εμπειρία ανοίγματος καρδιάς και εσωτερικής γαλήνης.',
-          en: 'A ceremonial experience of heart-opening and inner calm.',
-        },
-        href: cacaoCeremonyPath,
+        description: { el: 'Τελετουργική εμπειρία ανοίγματος καρδιάς και εσωτερικής γαλήνης.', en: 'A ceremonial experience of heart-opening and inner calm.' },
+        href: '/cacao-ceremony',
         cardDetailExtraClass: 'text-black',
       },
       {
-        image: `${siteRoot}/wp-content/uploads/2025/12/%CE%A3%CE%95%CE%9C%CE%99%CE%9D%CE%91%CE%A1%CE%99%CE%91-%CE%91%CE%A5%CE%A4%CE%9F%CE%93%CE%9D%CE%A9%CE%A3%CE%99%CE%91%CE%A3-1_noHYxv-scaled.webp`,
-        imageAlt: {
-          el: 'Σεμινάρια αυτογνωσίας και ανάπτυξης',
-          en: 'Self-awareness and growth seminars',
-        },
-        title: {
-          el: 'Σεμινάρια Αυτογνωσίας & Ανάπτυξης',
-          en: 'Self-awareness & growth seminars',
-        },
-        description: {
-          el: 'Βιωματική μάθηση για προσωπική εξέλιξη.',
-          en: 'Experiential learning for personal growth.',
-        },
-        href: seminarsPath,
+        image: 'https://alexispatrikounakos.gr/wp-content/uploads/2025/12/%CE%A3%CE%95%CE%9C%CE%99%CE%9D%CE%91%CE%A1%CE%99%CE%91-%CE%91%CE%A5%CE%A4%CE%9F%CE%93%CE%9D%CE%A9%CE%A3%CE%99%CE%91%CE%A3-1_noHYxv-scaled.webp',
+        imageAlt: { el: 'Σεμινάρια αυτογνωσίας και ανάπτυξης', en: 'Self-awareness and growth seminars' },
+        title: { el: 'Σεμινάρια Αυτογνωσίας & Ανάπτυξης', en: 'Self-awareness & growth seminars' },
+        description: { el: 'Βιωματική μάθηση για προσωπική εξέλιξη.', en: 'Experiential learning for personal growth.' },
+        href: '/σεμινάρια-αυτογνωσίας',
       },
       {
-        image: `${siteRoot}/wp-content/uploads/2025/11/gyp4ta4k1dwhr6yewjv2-scaled.jpg`,
+        image: 'https://alexispatrikounakos.gr/wp-content/uploads/2025/11/gyp4ta4k1dwhr6yewjv2-scaled.jpg',
         imageAlt: { el: 'Dance With Your Heart', en: 'Dance With Your Heart' },
         title: { el: 'Dance With Your Heart', en: 'Dance With Your Heart' },
-        description: {
-          el: 'Κίνηση με επίκεντρο τη σύνδεση με το σώμα και το συναίσθημα.',
-          en: 'Movement focused on reconnecting with body and emotion.',
-        },
-        href: danceWithYourHeartPath,
+        description: { el: 'Κίνηση με επίκεντρο τη σύνδεση με το σώμα και το συναίσθημα.', en: 'Movement focused on reconnecting with body and emotion.' },
+        href: '/dance-with-your-heart',
       },
     ],
   },
   about: {
     block1: {
-      image: `${siteRoot}/wp-content/uploads/2025/12/%CE%92%CE%99%CE%9F%CE%93%CE%A1%CE%91%CE%A6%CE%99%CE%9A%CE%9F-1_noHYxv.webp`,
-      imageAlt: {
-        el: 'Ενεργειακός θεραπευτής',
-        en: 'Energy healer',
-      },
+      image: 'https://alexispatrikounakos.gr/wp-content/uploads/2025/12/%CE%92%CE%99%CE%9F%CE%93%CE%A1%CE%91%CE%A6%CE%99%CE%9A%CE%9F-1_noHYxv.webp',
+      imageAlt: { el: 'Ενεργειακός θεραπευτής', en: 'Energy healer' },
       title: { el: 'Για Εμένα', en: 'About me' },
-      body: {
-        el: 'Γεια σου, είμαι ο Αλέξης Πατρικουνάκος και είμαι ενεργειακός θεραπευτής με εστίαση στο Somatic Release. Καθοδηγώ τους ανθρώπους στο να θυμηθούν ποιοι πραγματικά είναι και να ανακαλύψουν τον αυθεντικό τους εαυτό. Μέσα από το σώμα, τους βοηθώ να συνδεθούν με αυτό και να του δώσουν το χώρο που χρειάζεται για να εκφραστεί, να θεραπευτεί και να λάμψει.',
-        en: 'Hi, I am Alexis Patrikounakos, an energy healer focused on somatic release. I guide people to remember who they truly are and reconnect with their authentic self. Through the body, I help them relate to it and give it the space it needs to express, heal, and shine.',
-      },
+      body: { el: 'Γεια σου, είμαι ο Αλέξης Πατρικουνάκος και είμαι ενεργειακός θεραπευτής με εστίαση στο Somatic Release. Καθοδηγώ τους ανθρώπους στο να θυμηθούν ποιοι πραγματικά είναι και να ανακαλύψουν τον αυθεντικό τους εαυτό. Μέσα από το σώμα, τους βοηθώ να συνδεθούν με αυτό και να του δώσουν το χώρο που χρειάζεται για να εκφραστεί, να θεραπευτεί και να λάμψει.', en: 'Hi, I am Alexis Patrikounakos, an energy healer focused on somatic release. I guide people to remember who they truly are and reconnect with their authentic self. Through the body, I help them relate to it and give it the space it needs to express, heal, and shine.' },
       ctaLabel: { el: 'Περισσοτερα', en: 'More' },
       ctaHref: '/#contact',
     },
     block2: {
-      image: `${siteRoot}/wp-content/uploads/2025/12/%CE%92%CE%99%CE%9F%CE%93%CE%A1%CE%91%CE%A6%CE%99%CE%9A%CE%9F-2_noHYxv-1-scaled.webp`,
-      imageAlt: {
-        el: 'Εκπαίδευση και εμπειρία',
-        en: 'Training and experience',
-      },
+      image: 'https://alexispatrikounakos.gr/wp-content/uploads/2025/12/%CE%92%CE%99%CE%9F%CE%93%CE%A1%CE%91%CE%A6%CE%99%CE%9A%CE%9F-2_noHYxv-1-scaled.webp',
+      imageAlt: { el: 'Εκπαίδευση και εμπειρία', en: 'Training and experience' },
       title: { el: 'Εκπαίδευση', en: 'Training' },
-      body: {
-        el: 'Με σπουδές στο κομμάτι των κοινωνικών επιστήμων και του χορού και εκπαιδεύσεις πάνω στο κλάδο της ψυχολογίας, του life coaching, των ενεργειακών / εναλλακτικών θεραπειών και του θεάτρου συνδυάζω την αγάπη μου για την ανθρώπινη ύπαρξη με την επιθυμία μου για την έκφραση της αλήθειας της ψυχής. Η απελευθέρωση συναισθημάτων, τραυμάτων και μπλοκαρισμάτων που έχουν συσσωρευτεί στο σώμα είναι ο βασικός άξονας για την προσωπική ανάπτυξη και εξέλιξη.',
-        en: 'With studies in social sciences and dance, and training in psychology, life coaching, energy and alternative therapies, and theatre, I combine my love for the human experience with my wish to express the truth of the soul. Releasing emotions, trauma, and blockages stored in the body is the core of personal growth and evolution.',
-      },
+      body: { el: 'Με σπουδές στο κομμάτι των κοινωνικών επιστήμων και του χορού και εκπαιδεύσεις πάνω στο κλάδο της ψυχολογίας, του life coaching, των ενεργειακών / εναλλακτικών θεραπειών και του θεάτρου συνδυάζω την αγάπη μου για την ανθρώπινη ύπαρξη με την επιθυμία μου για την έκφραση της αλήθειας της ψυχής. Η απελευθέρωση συναισθημάτων, τραυμάτων και μπλοκαρισμάτων που έχουν συσσωρευτεί στο σώμα είναι ο βασικός άξονας για την προσωπική ανάπτυξη και εξέλιξη.', en: 'With studies in social sciences and dance, and training in psychology, life coaching, energy and alternative therapies, and theatre, I combine my love for the human experience with my wish to express the truth of the soul. Releasing emotions, trauma, and blockages stored in the body is the core of personal growth and evolution.' },
       ctaLabel: { el: 'Περισσοτερα', en: 'More' },
       ctaHref: '/#contact',
     },
@@ -487,41 +396,662 @@ export const homePageConfig: HomePageConfig = {
   newsletter: {
     headingLead: { el: 'Newsletter μέσω', en: 'Newsletter via' },
     headingAccent: { el: 'Email', en: 'Email' },
-    description: {
-      el: 'Κάνε εγγραφή στο newsletter για νέα και ενημερώσεις.',
-      en: 'Subscribe to the newsletter for news and updates.',
-    },
+    description: { el: 'Κάνε εγγραφή στο newsletter για νέα και ενημερώσεις.', en: 'Subscribe to the newsletter for news and updates.' },
     backgroundPattern: '',
-    emailPlaceholder: {
-      el: 'Το email σου',
-      en: 'Your email address',
-    },
+    emailPlaceholder: { el: 'Το email σου', en: 'Your email address' },
     submitLabel: { el: 'Εγγραφή', en: 'Subscribe' },
-    mailSubject: {
-      el: 'Εγγραφή newsletter',
-      en: 'Newsletter signup',
-    },
+    mailSubject: { el: 'Εγγραφή newsletter', en: 'Newsletter signup' },
   },
   videos: {
     sources: [
-      `${siteRoot}/wp-content/uploads/2026/01/Messenger_creation_00ADFA60-ECE8-4199-8696-530AA1178E79_id83pu.mp4`,
-      `${siteRoot}/wp-content/uploads/2026/01/2024-12-18-223632122_okksmw.mp4`,
-      `${siteRoot}/wp-content/uploads/2026/01/compressed-video_guo5v2.mp4`,
+      'https://alexispatrikounakos.gr/wp-content/uploads/2026/01/Messenger_creation_00ADFA60-ECE8-4199-8696-530AA1178E79_id83pu.mp4',
+      'https://alexispatrikounakos.gr/wp-content/uploads/2026/01/2024-12-18-223632122_okksmw.mp4',
+      'https://alexispatrikounakos.gr/wp-content/uploads/2026/01/compressed-video_guo5v2.mp4',
     ],
   },
   contact: {
     title: { el: 'Επικοινωνία', en: 'Contact' },
-    intro: {
-      el: 'Έχεις περισσότερες ερωτήσεις; Στείλε μου μήνυμα.',
-      en: 'Have more questions? Send me a message.',
-    },
-    sideImage: `${siteRoot}/wp-content/uploads/2025/12/%CE%A6%CE%9F%CE%A1%CE%9C%CE%91_noHYxv-scaled.webp`,
-    sideImageAlt: {
-      el: 'Φόρμα επικοινωνίας',
-      en: 'Contact form illustration',
-    },
+    intro: { el: 'Έχεις περισσότερες ερωτήσεις; Στείλε μου μήνυμα.', en: 'Have more questions? Send me a message.' },
+    sideImage: 'https://alexispatrikounakos.gr/wp-content/uploads/2025/12/%CE%A6%CE%9F%CE%A1%CE%9C%CE%91_noHYxv-scaled.webp',
+    sideImageAlt: { el: 'Φόρμα επικοινωνίας', en: 'Contact form illustration' },
   },
 };
+
+export const reikiPageConfig = {
+  intro: {
+    sectionExtraClass: 'mb-6',
+    backgroundImage: 'https://alexispatrikounakos.gr/wp-content/uploads/2025/12/qcysegjibjib0s8kby0n-scaled.jpg',
+    backgroundPosition: 'top center',
+    headline: { el: 'Ατομικές Συνεδρίες Reiki', en: 'Individual Reiki sessions' },
+    subline: { el: 'Επανέφερε την εσωτερική σου ηρεμία και δύναμη.', en: 'Restore your inner calm and strength.' },
+    ctaLabel: { el: 'Περισσοτερα', en: 'More' },
+    ctaHref: '#about3',
+  },
+  benefits: {
+    sectionTitle: { el: 'Οφέλη της θεραπείας', en: 'Benefits of the practice' },
+    cards: [
+      {
+        title: { el: 'Ενεργειακή αρμονία και ανανέωση', en: 'Energetic harmony and renewal' },
+        body: { el: 'Αποκαθιστά τη ροή της ενέργειας και ενισχύει την αυτοθεραπεία', en: 'Restores energy flow and supports self-healing.' },
+      },
+      {
+        title: { el: 'Βαθιά χαλάρωση και ανακούφιση από στρες', en: 'Deep relaxation and stress relief' },
+        body: { el: 'Δημιουργεί ηρεμία σώματος και νου', en: 'Creates calm in body and mind.' },
+      },
+      {
+        title: { el: 'Εσωτερική σύνδεση και προσωπική ανάπτυξη', en: 'Inner connection and personal growth' },
+        body: { el: 'Απελευθερώνει συναισθήματα, ενισχύει τη διαίσθηση και τη σύνδεση με τον Ανώτερο Εαυτό.', en: 'Releases emotion, strengthens intuition, and deepens connection with your higher self.' },
+      },
+    ],
+  },
+  story: {
+    containerId: 'about3',
+    block1: {
+      image: 'https://alexispatrikounakos.gr/wp-content/uploads/2025/12/b2ayacc8yqazqlqjpoqo-scaled.jpg',
+      imageAlt: { el: 'Ατομικές Συνεδρίες Reiki', en: 'Individual Reiki sessions' },
+      title: { el: 'Ενέργεια & Ισορροπία', en: 'Energy & balance' },
+      body: { el: 'Το Reiki είναι μια φυσική ενεργειακή μέθοδος αυτοθεραπείας με ρίζες στην Ιαπωνία, που δρα σε όλα τα επίπεδα: σωματικό, συναισθηματικό, νοητικό και πνευματικό επίπεδο. Κατά τη διάρκεια της συνεδρίας, η θεραπευτική ενέργεια ρέει απαλά από τα χέρια του θεραπευτή στο σώμα του θεραπευόμενου, αποκαθιστώντας έτσι τη φυσική ροή της ζωτικής ενέργειας και ενεργοποιώντας την ικανότητα του οργανισμού να αυτοθεραπεύεται. Εκτός από τις θεραπευτικές του ιδιότητες το Reiki αποτελεί μια πρακτική σύνδεσης με την εσωτερική μας σοφία, που φέρνει γαλήνη, ανακούφιση από το στρες και αίσθηση ενότητας με τον εαυτό και τη ζωή.', en: 'Reiki is a natural energy-based self-healing method rooted in Japan, working across physical, emotional, mental, and spiritual levels. During a session, healing energy flows gently from the practitioner’s hands into the recipient’s body, restoring the natural flow of life force and activating the body’s ability to self-heal. Beyond its therapeutic qualities, Reiki is a practice of reconnecting with inner wisdom, bringing calm, stress relief, and a sense of unity with yourself and life.' },
+      ctaLabel: { el: 'Ενδιαφερομαι', en: 'I am interested' },
+      ctaHref: '#interest2',
+    },
+    block2: {
+      image: 'https://alexispatrikounakos.gr/wp-content/uploads/2025/12/b1qbjcxyddeqsigwqqxt.jpg',
+      imageAlt: { el: 'Ατομικές Συνεδρίες Reiki', en: 'Individual Reiki sessions' },
+      title: { el: 'Σύνδεση & Ευεξία', en: 'Connection & wellbeing' },
+      body: { el: 'Το Reiki είναι μια φυσική ενεργειακή μέθοδος αυτοθεραπείας με ρίζες στην Ιαπωνία, που δρα σε όλα τα επίπεδα: σωματικό, συναισθηματικό, νοητικό και πνευματικό επίπεδο. Κατά τη διάρκεια της συνεδρίας, η θεραπευτική ενέργεια ρέει απαλά από τα χέρια του θεραπευτή στο σώμα του θεραπευόμενου, αποκαθιστώντας έτσι τη φυσική ροή της ζωτικής ενέργειας και ενεργοποιώντας την ικανότητα του οργανισμού να αυτοθεραπεύεται. Εκτός από τις θεραπευτικές του ιδιότητες το Reiki αποτελεί μια πρακτική σύνδεσης με την εσωτερική μας σοφία, που φέρνει γαλήνη, ανακούφιση από το στρες και αίσθηση ενότητας με τον εαυτό και τη ζωή.', en: 'Reiki is a natural energy-based self-healing method rooted in Japan, working across physical, emotional, mental, and spiritual levels. During a session, healing energy flows gently from the practitioner’s hands into the recipient’s body, restoring the natural flow of life force and activating the body’s ability to self-heal. Beyond its therapeutic qualities, Reiki is a practice of reconnecting with inner wisdom, bringing calm, stress relief, and a sense of unity with yourself and life.' },
+      ctaLabel: { el: 'Ενδιαφερομαι', en: 'I am interested' },
+      ctaHref: '#interest2',
+    },
+  },
+  faq: {
+    title: { el: 'FAQ', en: 'FAQ' },
+    subtitle: { el: 'Αν δεν βρεις την απάντηση που ψάχνεις, μην διστάσεις να επικοινωνήσεις μαζί μου.', en: 'If you cannot find the answer you need, feel free to get in touch.' },
+    items: [
+      {
+        id: 'reiki-faq-1',
+        question: { el: 'Πώς πραγματοποιείται μια συνεδρία Ρέικι;', en: 'How does a Reiki session take place?' },
+        answer: { el: 'Κατά τη διάρκεια της συνεδρίας, ο θεραπευτής διοχετεύει απαλή, θεραπευτική ενέργεια μέσω των χεριών του στο σώμα του θεραπευόμενου, ενεργοποιώντας τη φυσική ικανότητα του σώματος να αυτοθεραπεύεται. Το άτομο είναι ξαπλωμένο και η όλη διαδικασία γίνεται είτε από απόσταση είτε με απαλά αγγίγματα στο σώμα του ατόμου. Η διαδικασία είναι χαλαρωτική, ήρεμη και μη επεμβατική.', en: 'During the session, the practitioner channels gentle healing energy through their hands into the recipient’s body, activating the body’s natural self-healing. You lie comfortably while the work happens either at a distance or with light touch on the body. The process is relaxing, calm, and non-invasive.' },
+        defaultOpen: true,
+      },
+      {
+        id: 'reiki-faq-2',
+        question: { el: 'Είναι απαραίτητη προηγούμενη εμπειρία; Χρειάζεται κάποια ειδική προετοιμασία πριν ή μετά τη συνεδρία από μεριάς μου;', en: 'Do I need prior experience or special preparation before or after a session?' },
+        answer: { el: 'Όχι. Το Reiki είναι κατάλληλο για όλους, ανεξάρτητα από εμπειρία σε διαλογισμό ή ενεργειακές πρακτικές. Δεν χρειάζεται τίποτα. Ίσως πριν και μετά θα ήταν καλό ένα χαλαρωτικό ντους στο χώρο σου.', en: 'No. Reiki is suitable for everyone, regardless of experience with meditation or energy practices. You do not need to prepare anything special; a relaxing shower before and after can feel supportive.' },
+      },
+      {
+        id: 'reiki-faq-3',
+        question: { el: 'Τι θα νιώσω κατά τη διάρκεια μιας συνεδρίας; Πως θα είμαι μετά;', en: 'What will I feel during a session, and how might I feel afterwards?' },
+        answer: { el: 'Αυτό ποικίλει ανάλογα με το άτομο, μπορεί να αισθανθείς βαθιά χαλάρωση, ένα αίσθημα ανακούφισης και ηρεμίας, μια μικρή αίσθηση ζέστης ή κρύου στο κορμί σου ή ακόμα και να βυθιστείς σε ύπνο. Πολλοί άνθρωποι αναφέρουν αίσθηση ελαφρότητας, γαλήνης, απελευθέρωσης έντασης και συναισθηματικής ανακούφισης μετά τη συνεδρία. Σε ορισμένες περιπτώσεις, εμφανίζονται εσωτερικές συνειδητοποιήσεις ή βαθύτερη σύνδεση με τον εαυτό.', en: 'It varies: you may feel deep relaxation, relief and calm, subtle warmth or coolness in the body, or even drift toward sleep. Many people report lightness, peace, release of tension, and emotional ease afterwards. Sometimes new insights or a deeper sense of connection arise.' },
+      },
+      {
+        id: 'reiki-faq-4',
+        question: { el: 'Μπορεί το Reiki να βοηθήσει με άγχος και στρες;', en: 'Can Reiki help with anxiety and stress?' },
+        answer: { el: 'Ναι. Το Reiki είναι ιδιαίτερα αποτελεσματικό στη μείωση του άγχους, στη χαλάρωση του νευρικού συστήματος και στην αποφόρτιση έντασης από το σώμα και το νου.', en: 'Yes. Reiki is especially helpful for easing anxiety, relaxing the nervous system, and releasing tension held in the body and mind.' },
+      },
+      {
+        id: 'reiki-faq-5',
+        question: { el: 'Πόσες συνεδρίες θα χρειαστεί να κάνω; Πόση διάρκεια έχει κάθε συνεδρία;', en: 'How many sessions will I need, and how long is each session?' },
+        answer: { el: 'Αυτό εξαρτάται από το αίτημα / ζήτημα που θέλει να επιλύσει το κάθε άτομο. Η θεραπεία Reiki είναι καλό να γίνεται σε πιο συστηματική μορφή. Μπορεί να γίνεται και κάθε μέρα αν το άτομο χρίζει ανάγκης αλλά προτείνεται μια φορά την εβδομάδα ώστε τα αποτελέσματα να είναι πιο σύντομα. Μια τυπική συνεδρία Reiki διαρκεί περίπου 75 λεπτά, συμπεριλαμβανομένης σύντομης συζήτησης πριν και μετά τη θεραπείας για βαθύτερη κατανόηση της εμπειρίας.', en: 'It depends on what you want to work through. Reiki is most supportive when practiced consistently; sometimes daily if needed, though once a week is often suggested for steady results. A typical session lasts about 75 minutes, including a short conversation before and after to integrate the experience.' },
+      },
+      {
+        id: 'reiki-faq-6',
+        question: { el: 'Γίνονται οι συνεδρίες δια ζώσης ή online;', en: 'Are sessions in person or online?' },
+        answer: { el: 'Οι συνεδρίες πραγματοποιούνται και δια ζώσης και εξ αποστάσεως. Η εξ αποστάσεως θεραπεία είναι εξίσου αποτελεσματική, καθώς η ενέργεια δεν περιορίζεται από την απόσταση.', en: 'Sessions are available both in person and at a distance. Remote sessions can be equally effective, as energy is not limited by physical distance.' },
+      },
+    ],
+  },
+  interest: {
+    sectionId: 'interest2',
+    title: { el: 'Εκδήλωση ενδιαφέροντος', en: 'Expression of interest' },
+    intro: { el: 'Συμπλήρωσε τα στοιχεία σου για να μάθεις περισσότερα και να εξασφαλίσεις τη θέση σου.', en: 'Share your details to learn more and reserve your place.' },
+  },
+  inquiry: {
+    sideImage: 'https://alexispatrikounakos.gr/wp-content/uploads/2025/12/ariwmnfs5ho5yxojgl43-scaled.webp',
+    sideImageAlt: { el: 'Ατομικές συνεδρίες Reiki', en: 'Individual Reiki sessions' },
+  },
+};
+
+export const selfAwarenessPageConfig = {
+  intro: {
+    sectionExtraClass: 'mb-6',
+    backgroundImage: 'https://alexispatrikounakos.gr/wp-content/uploads/2025/12/cxag1wd6gnkkrxvvueap.jpg',
+    backgroundPosition: 'top center',
+    headline: { el: 'Ατομικές Συνεδρίες Αυτογνωσίας', en: 'Individual self-awareness sessions' },
+    subline: { el: 'Ανακάλυψε τον αυθεντικό σου εαυτό, απελευθέρωσε μπλοκαρίσματα και συνέδεσε το σώμα με την ψυχή σου.', en: 'Discover your authentic self, release blocks, and reconnect body and soul.' },
+    ctaLabel: { el: 'Περισσοτερα', en: 'More' },
+    ctaHref: '#about2',
+  },
+  benefits: {
+    sectionTitle: { el: 'Οφέλη της θεραπείας', en: 'Benefits of the practice' },
+    cards: [
+      {
+        title: { el: 'Επανένωση με την εσωτερική σοφία', en: 'Reunion with inner wisdom' },
+        body: { el: 'Ενεργοποίηση της διαίσθησης, σύνδεση με τη φωνή της ψυχής και ενίσχυση της εμπιστοσύνη στη διαδρομή της ζωής.', en: 'Activates intuition, connects you with the voice of the soul, and strengthens trust in your life path.' },
+        cardInnerExtraClass: 'm-0',
+      },
+      {
+        title: { el: 'Απελευθέρωση και αυτογνωσία', en: 'Release and self-knowledge' },
+        body: { el: 'Αναγνώριση περιοριστικών μοτίβων και μεταμόρφωσή τους, κατανόηση των εμπειριών και των σχέσεων.', en: 'Recognize limiting patterns and transform them; deepen understanding of experiences and relationships.' },
+      },
+      {
+        title: { el: 'Εσωτερική γαλήνη και ευθυγράμμιση με την αποστολή', en: 'Inner peace and alignment with purpose' },
+        body: { el: 'Εσωτερική γαλήνη και ευθυγράμμιση με την αποστολή', en: 'Inner calm and alignment with your life mission.' },
+      },
+    ],
+  },
+  story: {
+    containerId: 'about2',
+    block1: {
+      image: 'https://alexispatrikounakos.gr/wp-content/uploads/2025/12/xbcpmgmtt7er2icvxlhw.jpg',
+      imageAlt: { el: 'Ατομικές Συνεδρίες', en: 'Individual sessions' },
+      title: { el: 'Σύνδεση με τον Ανώτερο Εαυτό', en: 'Connection with the Higher Self' },
+      body: { el: 'Πριν την ενσάρκωσή μας, ο Ανώτερος Εαυτός καθορίζει τα μαθήματα και τη γενική πορεία της ζωής μας όμως με τη γέννηση η μνήμη αυτής της σοφίας χάνεται. Οι ατομικές συνεδρίες αυτογνωσίας βοηθούν στην επανασύνδεση με αυτό το βαθύ κομμάτι της ψυχής. Μέσα από καθοδηγούμενη σύνδεση με τον Ανώτερο Εαυτό, το άτομο αναγνωρίζει τα δώρα, τις προκλήσεις και το νόημα των εμπειριών του απελευθερώνοντας περιοριστικές πεποιθήσεις και ενισχύοντας την εσωτερική γαλήνη.', en: 'Before we incarnate, the Higher Self shapes the lessons and overall path of our life, yet that memory fades at birth. Individual self-awareness sessions help you reconnect with that deep part of the soul. Through guided connection with the Higher Self, you recognize the gifts, challenges, and meaning of your experiences—releasing limiting beliefs and strengthening inner peace.' },
+      ctaLabel: { el: 'Ενδιαφερομαι', en: 'I am interested' },
+      ctaHref: '#interest',
+      imageClassName: 'img-fluid wp-image-1177 squareImg',
+    },
+    block2: {
+      image: 'https://alexispatrikounakos.gr/wp-content/uploads/2025/12/paf5y4vn216w9q2sthmv-scaled.jpg',
+      imageAlt: { el: 'Ατομικές συνεδρίες αυτογνωσίας', en: 'Self-awareness sessions' },
+      title: { el: 'Απελευθέρωση περιορισμών & ενδυνάμωση', en: 'Releasing limits & empowerment' },
+      body: { el: 'Πριν την ενσάρκωσή μας, ο Ανώτερος Εαυτός καθορίζει τα μαθήματα και τη γενική πορεία της ζωής μας όμως με τη γέννηση η μνήμη αυτής της σοφίας χάνεται. Οι ατομικές συνεδρίες αυτογνωσίας βοηθούν στην επανασύνδεση με αυτό το βαθύ κομμάτι της ψυχής. Μέσα από καθοδηγούμενη σύνδεση με τον Ανώτερο Εαυτό, το άτομο αναγνωρίζει τα δώρα, τις προκλήσεις και το νόημα των εμπειριών του απελευθερώνοντας περιοριστικές πεποιθήσεις και ενισχύοντας την εσωτερική γαλήνη.', en: 'Before we incarnate, the Higher Self shapes the lessons and overall path of our life, yet that memory fades at birth. Individual self-awareness sessions help you reconnect with that deep part of the soul. Through guided connection with the Higher Self, you recognize the gifts, challenges, and meaning of your experiences—releasing limiting beliefs and strengthening inner peace.' },
+      ctaLabel: { el: 'Ενδιαφερομαι', en: 'I am interested' },
+      ctaHref: '#interest',
+      imageClassName: 'img-fluid',
+    },
+  },
+  faq: {
+    title: { el: 'FAQ', en: 'FAQ' },
+    subtitle: { el: 'Αν δεν βρεις την απάντηση που ψάχνεις, μην διστάσεις να επικοινωνήσεις μαζί μου.', en: 'If you cannot find the answer you need, feel free to get in touch.' },
+    items: [
+      {
+        id: 'sa-faq-1',
+        question: { el: 'Πώς πραγματοποιείται μια ατομική συνεδρία αυτογνωσίας;', en: 'How does an individual self-awareness session work?' },
+        answer: { el: 'Κάθε συνεδρία περιλαμβάνει σύνδεση με τον Ανώτερο Εαυτό σου, ενσυνείδητη συζήτηση μεταξύ μας και πρακτικές ενεργειακής απελευθέρωσης μέσω οραματισμών. Ο στόχος είναι να εντοπίσεις περιορισμούς, να κατανοήσεις βαθύτερα τις εμπειρίες σου και να ευθυγραμμιστείς με τον αυθεντικό σου δρόμο.', en: 'Each session includes connection with your Higher Self, conscious dialogue between us, and energy-release practices through visualizations. The aim is to notice limitations, understand your experiences more deeply, and align with your authentic path.' },
+        defaultOpen: true,
+      },
+      {
+        id: 'sa-faq-2',
+        question: { el: 'Πόσο συχνά χρειάζεται να κάνω συνεδρίες και πόσο διαρκεί;', en: 'How often should I come, and how long is a session?' },
+        answer: { el: 'Η συχνότητα και η διάρκεια εξατομικεύονται ανάλογα με τις ανάγκες σου και το στάδιό σου. Συνήθως συζητάμε ένα πλάνο που σε βοηθά να ενσωματώνεις την εμπειρία ανάμεσα στις συνεδρίες, ώστε η αλλαγή να είναι βιώσιμη και σταθερή.', en: 'Frequency and length are tailored to your needs and stage. We usually agree on a rhythm that helps you integrate between sessions so change feels sustainable.' },
+      },
+      {
+        id: 'sa-faq-3',
+        question: { el: 'Σε τι μπορεί να με βοηθήσει αυτή η θεραπεία στην καθημερινότητα μου;', en: 'How can this work help me in everyday life?' },
+        answer: { el: 'Οι συνεδρίες θα σε βοηθήσουν στο να υλοποιήσεις πιο γρήγορα αυτά που πραγματικά θέλει η ψυχή σου, να κατανοήσεις τα μαθήματα που έχεις έρθει να λάβεις και να διαχειρίζεσαι με περισσότερη συνείδηση τις ανθρώπινες σχέση σου. Επίσης, ενισχύουν τη διαίσθησης, την αυτογνωσία, την εσωτερική γαλήνη και φέρνουν καθαρότερη σύνδεση με την αποστολή σου σε αυτή τη Γη και την ψυχή σου.', en: 'They can help you move toward what your soul truly wants, understand the lessons you are here to learn, and relate to others with more awareness. They also strengthen intuition, self-knowledge, inner calm, and a clearer sense of your mission and soul connection.' },
+      },
+      {
+        id: 'sa-faq-4',
+        question: { el: 'Τι μπορεί να νιώσω μετά από μια συνεδρία;', en: 'What might I feel after a session?' },
+        answer: { el: 'Πολλοί αναφέρουν αίσθηση απελευθέρωσης, ελαφρότητα, συναισθηματική καθαρότητα, νέα κατανόηση για τις εμπειρίες τους και βαθύτερη ηρεμία. Μερικές φορές εμφανίζονται και εσωτερικές συνειδητοποιήσεις τις επόμενες μέρες.', en: 'Many people report a sense of release, lightness, emotional clarity, new insight into their experiences, and deeper calm. Sometimes realizations continue to unfold in the days that follow.' },
+      },
+      {
+        id: 'sa-faq-5',
+        question: { el: 'Χρειάζεται προηγούμενη εμπειρία σε πνευματικές πρακτικές;', en: 'Do I need prior experience with spiritual practices?' },
+        answer: { el: 'Όχι. Οι συνεδρίες είναι κατάλληλες για όλους, από αρχάριους μέχρι και άτομα με βαθιά πνευματική πορεία. Η καθοδήγηση προσαρμόζεται πλήρως στις ανάγκες του ατόμου.', en: 'No. Sessions are suitable for everyone—from beginners to people with a long spiritual path. Guidance is fully adapted to your needs.' },
+      },
+      {
+        id: 'sa-faq-6',
+        question: { el: 'Οι συνεδρίες γίνονται δια ζώσης ή online;', en: 'Are sessions in person or online?' },
+        answer: { el: 'Οι συνεδρίες μπορούν να πραγματοποιηθούν και με τους δύο τρόπους. Η εμπειρία είναι εξίσου αποτελεσματική online, καθώς στηρίζεται στη σύνδεση, τη συνειδητότητα και την ενεργειακή καθοδήγηση.', en: 'Sessions can take place both ways. The online experience can be just as effective, as it rests on connection, awareness, and energetic guidance.' },
+      },
+    ],
+  },
+  interest: {
+    sectionId: 'interest',
+    title: { el: 'Εκδήλωση ενδιαφέροντος', en: 'Expression of interest' },
+    intro: { el: 'Συμπλήρωσε τα στοιχεία σου για να μάθεις περισσότερα και να εξασφαλίσεις τη θέση σου', en: 'Share your details to learn more and secure your place.' },
+  },
+  inquiry: {
+    sideImage: 'https://alexispatrikounakos.gr/wp-content/uploads/2025/11/hfcoicn0g1yivovi2bug-e1766079745514.jpg',
+    sideImageAlt: { el: 'Ατομικές συνεδρίες αυτογνωσίας', en: 'Individual self-awareness sessions' },
+  },
+};
+
+export const cacaoPageConfig = {
+  intro: {
+    sectionExtraClass: 'mb-6',
+    backgroundImage: 'https://alexispatrikounakos.gr/wp-content/uploads/2025/12/Cacao2_noHYxv_11zon-scaled.webp',
+    backgroundPosition: 'center center',
+    headline: { el: 'Cacao Ceremony', en: 'Cacao Ceremony' },
+    subline: { el: 'Μια τελετή για σύνδεση, απελευθέρωση και αναγέννηση.', en: 'Μια τελετή για σύνδεση, απελευθέρωση και αναγέννηση.' },
+    ctaLabel: { el: 'Περισσοτερα', en: 'Περισσοτερα' },
+    ctaHref: '#about7',
+  },
+  benefits: {
+    sectionTitle: { el: 'Οφέλη της θεραπείας', en: 'Οφέλη της θεραπείας' },
+    cards: [
+      {
+        title: { el: 'Άνοιγμα καρδιάς και απελευθέρωση συναισθημάτων', en: 'Άνοιγμα καρδιάς και απελευθέρωση συναισθημάτων' },
+        body: { el: 'Λιώσιμο «πανοπλιών» και σύνδεση με την άνευ όρων αγάπη προς τον εαυτό.', en: 'Λιώσιμο «πανοπλιών» και σύνδεση με την άνευ όρων αγάπη προς τον εαυτό.' },
+      },
+      {
+        title: { el: 'Βαθιά θεραπεία και ενεργειακή ροή', en: 'Βαθιά θεραπεία και ενεργειακή ροή' },
+        body: { el: 'Επαφή με τραύματα και μπλοκαρίσματα, απελευθέρωση μέσω χορού και ενεργειακών τεχνικών.', en: 'Επαφή με τραύματα και μπλοκαρίσματα, απελευθέρωση μέσω χορού και ενεργειακών τεχνικών.' },
+      },
+      {
+        title: { el: 'Μεταμόρφωση και αναγέννηση', en: 'Μεταμόρφωση και αναγέννηση' },
+        body: { el: 'Καθαρισμός, νέα ποιότητα ύπαρξης και ενίσχυση της εσωτερικής καθοδήγησης.', en: 'Καθαρισμός, νέα ποιότητα ύπαρξης και ενίσχυση της εσωτερικής καθοδήγησης.' },
+      },
+    ],
+  },
+  story: {
+    containerId: 'about7',
+    block1: {
+      image: 'https://alexispatrikounakos.gr/wp-content/uploads/2025/12/cacao3_noHYxv_11zon-scaled.webp',
+      imageAlt: { el: 'Cacao Ceremony', en: 'Cacao Ceremony' },
+      title: { el: 'Άνοιγμα καρδιάς', en: 'Άνοιγμα καρδιάς' },
+      body: { el: 'Το Cacao Ceremony (Τελετή Κακάο) είναι μια ιερή συνάντηση όπου οι συμμετέχοντες συνδέονται με την καρδιά τους και βιώνουν ψυχική θεραπεία. Ο καρπός μετατρέπεται σε ιερό φάρμακο, βοηθώντας τις «πανοπλίες» γύρω από την καρδιά να λιώσουν και να αναδυθεί η άνευ όρων αγάπη προς τον εαυτό. Η εμπειρία συνδυάζει Κακάο, ενεργειακή θεραπεία και θεραπευτικό χορό, δημιουργώντας ένα ασφαλές πεδίο για προσωπική μεταμόρφωση και σύνδεση με το εσωτερικό μονοπάτι κάθε συμμετέχοντα.', en: 'Το Cacao Ceremony (Τελετή Κακάο) είναι μια ιερή συνάντηση όπου οι συμμετέχοντες συνδέονται με την καρδιά τους και βιώνουν ψυχική θεραπεία. Ο καρπός μετατρέπεται σε ιερό φάρμακο, βοηθώντας τις «πανοπλίες» γύρω από την καρδιά να λιώσουν και να αναδυθεί η άνευ όρων αγάπη προς τον εαυτό. Η εμπειρία συνδυάζει Κακάο, ενεργειακή θεραπεία και θεραπευτικό χορό, δημιουργώντας ένα ασφαλές πεδίο για προσωπική μεταμόρφωση και σύνδεση με το εσωτερικό μονοπάτι κάθε συμμετέχοντα.' },
+      ctaLabel: { el: 'Ενδιαφερομαι', en: 'Ενδιαφερομαι' },
+      ctaHref: '#interest6',
+    },
+    block2: {
+      image: 'https://alexispatrikounakos.gr/wp-content/uploads/2026/01/cuzqjvu0ycdpogskfjpq-scaled.webp',
+      imageAlt: { el: 'Cacao Ceremony', en: 'Cacao Ceremony' },
+      title: { el: 'Απελευθέρωση και αναγέννηση', en: 'Απελευθέρωση και αναγέννηση' },
+      body: { el: 'Κατά την τελετή, η καρδιά ανοίγει, τα εγκλωβισμένα συναισθήματα απελευθερώνονται και η ενέργεια ρέει ελεύθερα μέσα από τον θεραπευτικό χορό και τις ενεργειακές τεχνικές. Το τελετουργικό κακάο ενισχύει τη σύνδεση με την εσωτερική καθοδήγηση και το πνεύμα του Κακάο, προσφέροντας αίσθηση αυθεντικής ελευθερίας. Η τελετή γίνεται πέρασμα αναγέννησης καθαρίζοντας ενέργειες, κλείνοντας κύκλους και ανοίγοντας χώρο για νέες προθέσεις και βαθύτερη σύνδεση με τον αυθεντικό εαυτό.', en: 'Κατά την τελετή, η καρδιά ανοίγει, τα εγκλωβισμένα συναισθήματα απελευθερώνονται και η ενέργεια ρέει ελεύθερα μέσα από τον θεραπευτικό χορό και τις ενεργειακές τεχνικές. Το τελετουργικό κακάο ενισχύει τη σύνδεση με την εσωτερική καθοδήγηση και το πνεύμα του Κακάο, προσφέροντας αίσθηση αυθεντικής ελευθερίας. Η τελετή γίνεται πέρασμα αναγέννησης καθαρίζοντας ενέργειες, κλείνοντας κύκλους και ανοίγοντας χώρο για νέες προθέσεις και βαθύτερη σύνδεση με τον αυθεντικό εαυτό.' },
+      ctaLabel: { el: 'Ενδιαφερομαι', en: 'Ενδιαφερομαι' },
+      ctaHref: '#interest6',
+    },
+  },
+  faq: {
+    title: { el: 'FAQ', en: 'FAQ' },
+    subtitle: { el: 'Αν δεν βρεις την απάντηση που ψάχνεις, μην διστάσεις να επικοινωνήσεις μαζί μου.', en: 'Αν δεν βρεις την απάντηση που ψάχνεις, μην διστάσεις να επικοινωνήσεις μαζί μου.' },
+    items: [
+      {
+        id: 'FaqCollapse1',
+        question: { el: 'Τι μπορώ να περιμένω από μια Τελετή Κακάο;', en: 'Τι μπορώ να περιμένω από μια Τελετή Κακάο;' },
+        answer: { el: 'Κατά τη διάρκεια της τελετής, το Κακάο λειτουργεί ως ιερό μέσο σύνδεσης με την καρδιά. Οι συμμετέχοντες βιώνουν απελευθέρωση συναισθημάτων, ενεργειακή ροή και θεραπεία μέσω του χορού και της καθοδηγούμενης πρακτικής. Η εμπειρία δημιουργεί ένα ασφαλές πεδίο για εσωτερική σύνδεση, αυτογνωσία και αναγέννηση, επιτρέποντας στο άτομο να ανοίξει την καρδιά του και να ενισχύσει την αυθεντική του έκφραση.', en: 'Κατά τη διάρκεια της τελετής, το Κακάο λειτουργεί ως ιερό μέσο σύνδεσης με την καρδιά. Οι συμμετέχοντες βιώνουν απελευθέρωση συναισθημάτων, ενεργειακή ροή και θεραπεία μέσω του χορού και της καθοδηγούμενης πρακτικής. Η εμπειρία δημιουργεί ένα ασφαλές πεδίο για εσωτερική σύνδεση, αυτογνωσία και αναγέννηση, επιτρέποντας στο άτομο να ανοίξει την καρδιά του και να ενισχύσει την αυθεντική του έκφραση.' },
+        defaultOpen: true,
+      },
+      {
+        id: 'FaqCollapse2',
+        question: { el: 'Τι περιλαμβάνει η τελετή;', en: 'Τι περιλαμβάνει η τελετή;' },
+        answer: { el: 'Η Τελετή Κακάο περιλαμβάνει την προετοιμασία του ιερού ποτού, καθοδηγούμενο χορό, κινητικούς ή καθιστικούς διαλογισμούς και ενεργειακές πρακτικές. Κάθε στοιχείο έχει σκοπό να ανοίξει την καρδιά, να απελευθερώσει τα συναισθηματικά μπλοκαρίσματα και να ενισχύσει τη σύνδεση με τον εσωτερικό εαυτό και την καρδιά.', en: 'Η Τελετή Κακάο περιλαμβάνει την προετοιμασία του ιερού ποτού, καθοδηγούμενο χορό, κινητικούς ή καθιστικούς διαλογισμούς και ενεργειακές πρακτικές. Κάθε στοιχείο έχει σκοπό να ανοίξει την καρδιά, να απελευθερώσει τα συναισθηματικά μπλοκαρίσματα και να ενισχύσει τη σύνδεση με τον εσωτερικό εαυτό και την καρδιά.' },
+      },
+      {
+        id: 'FaqCollapse8',
+        question: { el: 'Τι συναισθήματα ή αλλαγές μπορώ να περιμένω μετά την τελετή;', en: 'Τι συναισθήματα ή αλλαγές μπορώ να περιμένω μετά την τελετή;' },
+        answer: { el: 'Μετά την Τελετή Κακάο οι συμμετέχοντες συχνά νιώθουν εσωτερική ηρεμία, συναισθηματική απελευθέρωση, αύξηση της ενέργειας και σύνδεση με τη δημιουργικότητά τους. Η εμπειρία μπορεί να φέρει βαθύτερη σύνδεση με τον εαυτό, αίσθηση ανανέωσης και μεγαλύτερη αυτοπεποίθηση στην έκφραση των συναισθημάτων.', en: 'Μετά την Τελετή Κακάο οι συμμετέχοντες συχνά νιώθουν εσωτερική ηρεμία, συναισθηματική απελευθέρωση, αύξηση της ενέργειας και σύνδεση με τη δημιουργικότητά τους. Η εμπειρία μπορεί να φέρει βαθύτερη σύνδεση με τον εαυτό, αίσθηση ανανέωσης και μεγαλύτερη αυτοπεποίθηση στην έκφραση των συναισθημάτων.' },
+      },
+      {
+        id: 'FaqCollapse3',
+        question: { el: 'Πρέπει να έχω εμπειρία σε τελετές ή ενεργειακές πρακτικές;', en: 'Πρέπει να έχω εμπειρία σε τελετές ή ενεργειακές πρακτικές;' },
+        answer: { el: 'Όχι. Η Τελετή Κακάο είναι ανοικτή σε όλους, ανεξαρτήτως εμπειρίας. Οι συμμετέχοντες καθοδηγούνται με ασφάλεια και σεβασμό, ώστε να βιώσουν τη διαδικασία χωρίς άγχος ή προκαταλήψεις. Η έμφαση είναι στη σύνδεση με τον εαυτό και την καρδιά, όχι στην τεχνική γνώση.', en: 'Όχι. Η Τελετή Κακάο είναι ανοικτή σε όλους, ανεξαρτήτως εμπειρίας. Οι συμμετέχοντες καθοδηγούνται με ασφάλεια και σεβασμό, ώστε να βιώσουν τη διαδικασία χωρίς άγχος ή προκαταλήψεις. Η έμφαση είναι στη σύνδεση με τον εαυτό και την καρδιά, όχι στην τεχνική γνώση.' },
+      },
+      {
+        id: 'FaqCollapse4',
+        question: { el: 'Πίνουμε από αυτό το Cacao; Χρησιμοποιείται και κάτι άλλο στην τελετή πέρα από το Cacao;', en: 'Πίνουμε από αυτό το Cacao; Χρησιμοποιείται και κάτι άλλο στην τελετή πέρα από το Cacao;' },
+        answer: { el: 'Το Κακάο αυτό μαγειρεύεται μαζί με άλλα μπαχαρικά ώστε να τα καταναλώσουμε κατά τη διάρκεια της τελετής και να πάρουμε όλα τα θρεπτικά του συστατικά. Για τυχόν αλλεργίες επικοινωνούμε κάθε φορά με τον καθοδηγητή.', en: 'Το Κακάο αυτό μαγειρεύεται μαζί με άλλα μπαχαρικά ώστε να τα καταναλώσουμε κατά τη διάρκεια της τελετής και να πάρουμε όλα τα θρεπτικά του συστατικά. Για τυχόν αλλεργίες επικοινωνούμε κάθε φορά με τον καθοδηγητή.' },
+      },
+      {
+        id: 'FaqCollapse5',
+        question: { el: 'Είναι κατάλληλη για όλους τους ανθρώπους;', en: 'Είναι κατάλληλη για όλους τους ανθρώπους;' },
+        answer: { el: 'Η τελετή απευθύνεται σε όσους επιθυμούν να συνδεθούν βαθύτερα με την καρδιά τους και να βιώσουν θεραπεία μέσω κίνησης και ενέργειας. Ωστόσο, άτομα με σοβαρά ιατρικά προβλήματα ή ειδικές διατροφικές ανάγκες θα πρέπει να συμβουλευτούν τον καθοδηγητή πριν συμμετάσχουν, για να διασφαλιστεί η ασφάλεια και η άνεση τους.', en: 'Η τελετή απευθύνεται σε όσους επιθυμούν να συνδεθούν βαθύτερα με την καρδιά τους και να βιώσουν θεραπεία μέσω κίνησης και ενέργειας. Ωστόσο, άτομα με σοβαρά ιατρικά προβλήματα ή ειδικές διατροφικές ανάγκες θα πρέπει να συμβουλευτούν τον καθοδηγητή πριν συμμετάσχουν, για να διασφαλιστεί η ασφάλεια και η άνεση τους.' },
+      },
+      {
+        id: 'FaqCollapse6',
+        question: { el: 'Πόσο διαρκεί μια Τελετή Κακάο;', en: 'Πόσο διαρκεί μια Τελετή Κακάο;' },
+        answer: { el: 'Συνήθως η τελετή διαρκεί από 1,5 έως 2 ώρες. Κατά τη διάρκεια αυτού του χρόνου, οι συμμετέχοντες συνδέονται με το Κακάο, ακολουθούν καθοδηγούμενες ασκήσεις μέσω κίνησης και διαλογισμού. Ο χρόνος επιτρέπει μια πλήρη εμπειρία σύνδεσης, θεραπείας και χαλάρωσης.', en: 'Συνήθως η τελετή διαρκεί από 1,5 έως 2 ώρες. Κατά τη διάρκεια αυτού του χρόνου, οι συμμετέχοντες συνδέονται με το Κακάο, ακολουθούν καθοδηγούμενες ασκήσεις μέσω κίνησης και διαλογισμού. Ο χρόνος επιτρέπει μια πλήρη εμπειρία σύνδεσης, θεραπείας και χαλάρωσης.' },
+      },
+    ],
+  },
+  interest: {
+    sectionId: 'interest6',
+    title: { el: 'Εκδήλωση ενδιαφέροντος', en: 'Εκδήλωση ενδιαφέροντος' },
+    intro: { el: 'Συμπλήρωσε τα στοιχεία σου για να μάθεις περισσότερα και να εξασφαλίσεις τη θέση σου.', en: 'Συμπλήρωσε τα στοιχεία σου για να μάθεις περισσότερα και να εξασφαλίσεις τη θέση σου.' },
+    email: { el: 'info@alexpatrikounakos.gr ', en: 'info@alexpatrikounakos.gr ' },
+  },
+  inquiry: {
+    sideImage: 'https://alexispatrikounakos.gr/wp-content/uploads/2025/11/xxeeu9ttkypewg1qiur9-scaled.jpg',
+    sideImageAlt: { el: 'Cacao Ceremony', en: 'Cacao Ceremony' },
+    cf7ShortcodeText: '[contact-form-7 id="f2ac798" title="Cacao Ceremony"]',
+  },
+};
+
+export const dancePageConfig = {
+  intro: {
+    sectionExtraClass: 'mb-6',
+    backgroundImage: 'https://alexispatrikounakos.gr/wp-content/uploads/2025/11/z26kto44vpfcvfguk2hm-scaled.jpg',
+    backgroundPosition: 'top center',
+    headline: { el: 'Dance With Your Heart', en: 'Dance With Your Heart' },
+    subline: { el: 'Χόρεψε με την καρδιά σου, απελευθέρωσε συναισθήματα και συνέδεσε σώμα, νου και ψυχή.', en: 'Χόρεψε με την καρδιά σου, απελευθέρωσε συναισθήματα και συνέδεσε σώμα, νου και ψυχή.' },
+    ctaLabel: { el: 'Περισσοτερα', en: 'Περισσοτερα' },
+    ctaHref: '#about6',
+  },
+  benefits: {
+    sectionTitle: { el: 'Οφέλη της θεραπείας', en: 'Οφέλη της θεραπείας' },
+    cards: [
+      {
+        title: { el: 'Σύνδεση σώματος, καρδιάς και αναπνοής', en: 'Σύνδεση σώματος, καρδιάς και αναπνοής' },
+        body: { el: 'Επαναφέρει την επίγνωση στο “εδώ και τώρα” και ηρεμεί το νου.', en: 'Επαναφέρει την επίγνωση στο “εδώ και τώρα” και ηρεμεί το νου.' },
+      },
+      {
+        title: { el: 'Απελευθέρωση συναισθημάτων και σωματική ενεργοποίηση', en: 'Απελευθέρωση συναισθημάτων και σωματική ενεργοποίηση' },
+        body: { el: 'Απελευθερώνει μπλοκαρίσματα και ευθυγραμμίζει τα chakras, ενισχύοντας τη ζωτικότητα.', en: 'Απελευθερώνει μπλοκαρίσματα και ευθυγραμμίζει τα chakras, ενισχύοντας τη ζωτικότητα.' },
+      },
+      {
+        title: { el: 'Αυθεντική έκφραση και ενδυνάμωση', en: 'Αυθεντική έκφραση και ενδυνάμωση' },
+        body: { el: 'Το σώμα καθοδηγεί την κίνηση, ενισχύοντας τη δημιουργικότητα, την ψυχική ελευθερία και την εμπιστοσύνη στον εαυτό.', en: 'Το σώμα καθοδηγεί την κίνηση, ενισχύοντας τη δημιουργικότητα, την ψυχική ελευθερία και την εμπιστοσύνη στον εαυτό.' },
+      },
+    ],
+  },
+  story: {
+    containerId: 'about6',
+    block1: {
+      image: 'https://alexispatrikounakos.gr/wp-content/uploads/2025/12/DANCING-3_noHYxv.webp',
+      imageAlt: { el: 'dance with your heart', en: 'dance with your heart' },
+      title: { el: 'Απελευθέρωσε την ψυχή σου', en: 'Απελευθέρωσε την ψυχή σου' },
+      body: { el: 'Το “Dancing With Your Heart” είναι μια βιωματική εμπειρία κίνησης χωρίς προκαθορισμένα βήματα. Μόνο εσύ, η αναπνοή σου και η καρδιά σου. Στην καθημερινότητα ζούμε συχνά στο μυαλό, ενώ εδώ δίνεται χώρος στην καρδιά να καθοδηγήσει και να εκφραστεί μέσα από το σώμα. Μέσα από τους κινητικούς διαλογισμούς, το σώμα ενεργοποιείται, τα συναισθήματα απελευθερώνονται και η ενέργεια ευθυγραμμίζεται, επιτρέποντας την αυθόρμητη και αληθινή έκφραση.', en: 'Το “Dancing With Your Heart” είναι μια βιωματική εμπειρία κίνησης χωρίς προκαθορισμένα βήματα. Μόνο εσύ, η αναπνοή σου και η καρδιά σου. Στην καθημερινότητα ζούμε συχνά στο μυαλό, ενώ εδώ δίνεται χώρος στην καρδιά να καθοδηγήσει και να εκφραστεί μέσα από το σώμα. Μέσα από τους κινητικούς διαλογισμούς, το σώμα ενεργοποιείται, τα συναισθήματα απελευθερώνονται και η ενέργεια ευθυγραμμίζεται, επιτρέποντας την αυθόρμητη και αληθινή έκφραση.' },
+      ctaLabel: { el: 'Ενδιαφερομαι', en: 'Ενδιαφερομαι' },
+      ctaHref: '#interest5',
+    },
+    block2: {
+      image: 'https://alexispatrikounakos.gr/wp-content/uploads/2026/01/cvrovnklxqa5sji7fbmx-scaled.webp',
+      imageAlt: { el: '', en: '' },
+      title: { el: 'Κίνηση με συνείδηση', en: 'Κίνηση με συνείδηση' },
+      body: { el: 'Στις συναντήσεις “Dancing With Your Heart”, το σώμα γίνεται ο φυσικός οδηγός της εσωτερικής σοφίας. Η ελεύθερη κίνηση και η συνειδητή αναπνοή ηρεμούν το νου, ενώ η καρδιά καθοδηγεί την εμπειρία. Η πρακτική αυτή ενεργοποιεί τα ενεργειακά κέντρα (chakras), απελευθερώνει συναισθήματα και ενισχύει την αυθεντική έκφραση, δημιουργώντας χώρο για δημιουργικότητα και ψυχική ελευθερία. Η εμπειρία ενισχύει τη σύνδεση με το σώμα και την καρδιά, επιτρέποντας στο άτομο να βιώσει την κίνηση ως έκφραση δύναμης και χαράς.', en: 'Στις συναντήσεις “Dancing With Your Heart”, το σώμα γίνεται ο φυσικός οδηγός της εσωτερικής σοφίας. Η ελεύθερη κίνηση και η συνειδητή αναπνοή ηρεμούν το νου, ενώ η καρδιά καθοδηγεί την εμπειρία. Η πρακτική αυτή ενεργοποιεί τα ενεργειακά κέντρα (chakras), απελευθερώνει συναισθήματα και ενισχύει την αυθεντική έκφραση, δημιουργώντας χώρο για δημιουργικότητα και ψυχική ελευθερία. Η εμπειρία ενισχύει τη σύνδεση με το σώμα και την καρδιά, επιτρέποντας στο άτομο να βιώσει την κίνηση ως έκφραση δύναμης και χαράς.' },
+      ctaLabel: { el: 'Ενδιαφερομαι', en: 'Ενδιαφερομαι' },
+      ctaHref: '#interest5',
+    },
+  },
+  faq: {
+    title: { el: 'FAQ', en: 'FAQ' },
+    subtitle: { el: 'Αν δεν βρεις την απάντηση που ψάχνεις, μην διστάσεις να επικοινωνήσεις μαζί μου.', en: 'Αν δεν βρεις την απάντηση που ψάχνεις, μην διστάσεις να επικοινωνήσεις μαζί μου.' },
+    items: [
+      {
+        id: 'FaqCollapse1',
+        question: { el: 'Τι ακριβώς είναι το “Dancing With Your Heart”;', en: 'Τι ακριβώς είναι το “Dancing With Your Heart”;' },
+        answer: { el: 'Είναι μια βιωματική εμπειρία ελεύθερης κίνησης που βασίζεται στη συνειδητή αναπνοή, στην ενεργειακή ροή και στην έκφραση των συναισθημάτων. Δεν υπάρχουν βήματα ή χορευτικές απαιτήσεις. Μόνο χώρος για ελευθερία, αυθεντικότητα και σύνδεση με το σώμα.', en: 'Είναι μια βιωματική εμπειρία ελεύθερης κίνησης που βασίζεται στη συνειδητή αναπνοή, στην ενεργειακή ροή και στην έκφραση των συναισθημάτων. Δεν υπάρχουν βήματα ή χορευτικές απαιτήσεις. Μόνο χώρος για ελευθερία, αυθεντικότητα και σύνδεση με το σώμα.' },
+        defaultOpen: true,
+        collapsedClass: true,
+      },
+      {
+        id: 'FaqCollapse2',
+        question: { el: 'Πόσο συχνά πρέπει να συμμετέχω σε μια συνεδρία ή σεμινάριο για να νιώσω αλλαγή;', en: 'Πόσο συχνά πρέπει να συμμετέχω σε μια συνεδρία ή σεμινάριο για να νιώσω αλλαγή;' },
+        answer: { el: 'Η εμπειρία κάθε ατόμου είναι διαφορετική, αλλά οι τακτικές συμμετοχές ενισχύουν τη σύνδεση με τον εαυτό, την απελευθέρωση συναισθημάτων και την προσωπική ανάπτυξη. Ακόμα και μια μοναδική συμμετοχή μπορεί να φέρει επίγνωση και συναισθηματική ή σωματική απελευθέρωση. Η συνέπεια δημιουργεί βαθύτερη μεταμόρφωση και σταθερή ενδυνάμωση.', en: 'Η εμπειρία κάθε ατόμου είναι διαφορετική, αλλά οι τακτικές συμμετοχές ενισχύουν τη σύνδεση με τον εαυτό, την απελευθέρωση συναισθημάτων και την προσωπική ανάπτυξη. Ακόμα και μια μοναδική συμμετοχή μπορεί να φέρει επίγνωση και συναισθηματική ή σωματική απελευθέρωση. Η συνέπεια δημιουργεί βαθύτερη μεταμόρφωση και σταθερή ενδυνάμωση.' },
+      },
+      {
+        id: 'FaqCollapse8',
+        question: { el: 'Χρειάζεται να φοράω κάτι συγκεκριμένο ή να έχω κάτι μαζί μου;', en: 'Χρειάζεται να φοράω κάτι συγκεκριμένο ή να έχω κάτι μαζί μου;' },
+        answer: { el: 'Άνετα ρούχα που επιτρέπουν στο σώμα να κινηθεί ελεύθερα.', en: 'Άνετα ρούχα που επιτρέπουν στο σώμα να κινηθεί ελεύθερα.' },
+      },
+      {
+        id: 'FaqCollapse3',
+        question: { el: 'Χρειάζεται να ξέρω χορό ή να έχω εμπειρία;', en: 'Χρειάζεται να ξέρω χορό ή να έχω εμπειρία;' },
+        answer: { el: 'Όχι. Η πρακτική δεν βασίζεται σε τεχνική ή ρυθμό, αλλά στη φυσική κίνηση και στην εσωτερική σοφία του σώματος. Οποιοσδήποτε μπορεί να συμμετέχει ανεξαρτήτως ηλικίας, φυσικής κατάστασης ή εμπειρίας. Ο θεραπευτής δημιουργεί ένα ασφαλές περιβάλλον, καθοδηγώντας το άτομο (ατομικά ή ομαδικά) να εκφραστεί μέσω της κίνησης.', en: 'Όχι. Η πρακτική δεν βασίζεται σε τεχνική ή ρυθμό, αλλά στη φυσική κίνηση και στην εσωτερική σοφία του σώματος. Οποιοσδήποτε μπορεί να συμμετέχει ανεξαρτήτως ηλικίας, φυσικής κατάστασης ή εμπειρίας. Ο θεραπευτής δημιουργεί ένα ασφαλές περιβάλλον, καθοδηγώντας το άτομο (ατομικά ή ομαδικά) να εκφραστεί μέσω της κίνησης.' },
+        collapsedClass: true,
+      },
+      {
+        id: 'FaqCollapse4',
+        question: { el: 'Πόσο συχνά πρέπει να συμμετέχω σε μια συνεδρία ή σεμινάριο για να νιώσω αλλαγή;', en: 'Πόσο συχνά πρέπει να συμμετέχω σε μια συνεδρία ή σεμινάριο για να νιώσω αλλαγή;' },
+        answer: { el: 'Η εμπειρία κάθε ατόμου είναι διαφορετική, αλλά οι τακτικές συμμετοχές ενισχύουν τη σύνδεση με τον εαυτό, την απελευθέρωση συναισθημάτων και την προσωπική ανάπτυξη. Ακόμα και μια μοναδική συμμετοχή μπορεί να φέρει επίγνωση και εσωτερική γαλήνη, ενώ η συνέπεια δημιουργεί βαθύτερη μεταμόρφωση και σταθερή ενδυνάμωση.', en: 'Η εμπειρία κάθε ατόμου είναι διαφορετική, αλλά οι τακτικές συμμετοχές ενισχύουν τη σύνδεση με τον εαυτό, την απελευθέρωση συναισθημάτων και την προσωπική ανάπτυξη. Ακόμα και μια μοναδική συμμετοχή μπορεί να φέρει επίγνωση και εσωτερική γαλήνη, ενώ η συνέπεια δημιουργεί βαθύτερη μεταμόρφωση και σταθερή ενδυνάμωση.' },
+      },
+      {
+        id: 'FaqCollapse5',
+        question: { el: 'Πόσο διαρκεί και τι περιλαμβάνει;', en: 'Πόσο διαρκεί και τι περιλαμβάνει;' },
+        answer: { el: 'Μια συνεδρία διαρκεί συνήθως 1 ώρα. Ξεκινά με ήπια αναπνοή και κεντράρισμα, ακολουθεί καθοδηγούμενη κινητική ενεργοποίηση (ζέσταμα σώματος & ενδυνάμωσή) και στη συνέχεια ελεύθερη κίνηση. Η εμπειρία ολοκληρώνεται με σύντομη χαλάρωση.', en: 'Μια συνεδρία διαρκεί συνήθως 1 ώρα. Ξεκινά με ήπια αναπνοή και κεντράρισμα, ακολουθεί καθοδηγούμενη κινητική ενεργοποίηση (ζέσταμα σώματος & ενδυνάμωσή) και στη συνέχεια ελεύθερη κίνηση. Η εμπειρία ολοκληρώνεται με σύντομη χαλάρωση.' },
+      },
+      {
+        id: 'FaqCollapse7',
+        question: { el: 'Είναι ατομική ή ομαδική εμπειρία;', en: 'Είναι ατομική ή ομαδική εμπειρία;' },
+        answer: { el: 'Το “Dancing With Your Heart” προσφέρεται και ατομικά και ομαδικά. Οι ομαδικές συναντήσεις ενισχύουν τη δυναμική και την υποστήριξη, ενώ οι ατομικές επιτρέπουν πιο βαθιά προσωπική εμβάθυνση.', en: 'Το “Dancing With Your Heart” προσφέρεται και ατομικά και ομαδικά. Οι ομαδικές συναντήσεις ενισχύουν τη δυναμική και την υποστήριξη, ενώ οι ατομικές επιτρέπουν πιο βαθιά προσωπική εμβάθυνση.' },
+      },
+      {
+        id: 'FaqCollapse6',
+        question: { el: 'Τι θα νιώσω κατά τη διάρκεια της εμπειρίας;', en: 'Τι θα νιώσω κατά τη διάρκεια της εμπειρίας;' },
+        answer: { el: 'Πολλοί συμμετέχοντες αναφέρουν αίσθηση απελευθέρωσης, συναισθηματική και σωματική εκτόνωση και μεγαλύτερη σύνδεση με το σώμα τους. Άλλοι βιώνουν μεγαλύτερη σύνδεση με την καρδιά, καθαρότητα σκέψης και εσωτερική γαλήνη.', en: 'Πολλοί συμμετέχοντες αναφέρουν αίσθηση απελευθέρωσης, συναισθηματική και σωματική εκτόνωση και μεγαλύτερη σύνδεση με το σώμα τους. Άλλοι βιώνουν μεγαλύτερη σύνδεση με την καρδιά, καθαρότητα σκέψης και εσωτερική γαλήνη.' },
+      },
+    ],
+  },
+  interest: {
+    sectionId: 'interest5',
+    title: { el: 'Εκδήλωση ενδιαφέροντος', en: 'Εκδήλωση ενδιαφέροντος' },
+    intro: { el: 'Συμπλήρωσε τα στοιχεία σου για να μάθεις περισσότερα και να εξασφαλίσεις τη θέση σου.', en: 'Συμπλήρωσε τα στοιχεία σου για να μάθεις περισσότερα και να εξασφαλίσεις τη θέση σου.' },
+    email: { el: 'info@alexpatrikounakos.gr', en: 'info@alexpatrikounakos.gr' },
+  },
+  inquiry: {
+    sideImage: 'https://alexispatrikounakos.gr/wp-content/uploads/2025/12/btysus9t9rodk0nahnfb_compressed-scaled.webp',
+    sideImageAlt: { el: '', en: '' },
+    cf7ShortcodeText: '[contact-form-7 id="5ae959f" title="Dancing with your heart"]',
+  },
+};
+
+export const groupMeditationPageConfig = {
+  intro: {
+    sectionExtraClass: 'mb-6',
+    backgroundImage: 'https://alexispatrikounakos.gr/wp-content/uploads/2025/12/Συλλογικη-Συνδεση-και-Γαληνη_noHYxv.webp',
+    backgroundPosition: 'top center',
+    headline: { el: 'Ομαδικός Διαλογισμός & Μοίρασμα', en: 'Ομαδικός Διαλογισμός & Μοίρασμα' },
+    subline: { el: 'Απελευθέρωσε συναισθήματα και επανασυνδέσου με τον εαυτό σου.', en: 'Απελευθέρωσε συναισθήματα και επανασυνδέσου με τον εαυτό σου.' },
+    ctaLabel: { el: 'Περισσοτερα', en: 'Περισσοτερα' },
+    ctaHref: '#about4',
+  },
+  benefits: {
+    sectionTitle: { el: 'Οφέλη της θεραπείας', en: 'Οφέλη της θεραπείας' },
+    cards: [
+      {
+        title: { el: 'Εσωτερική γαλήνη και επανένωση με τον εαυτό', en: 'Εσωτερική γαλήνη και επανένωση με τον εαυτό' },
+        body: { el: 'Χαλάρωση, μείωση στρες και σύνδεση με την προσωπική σοφία.', en: 'Χαλάρωση, μείωση στρες και σύνδεση με την προσωπική σοφία.' },
+      },
+      {
+        title: { el: 'Απελευθέρωση συναισθημάτων και ενεργειακή ισορροπία', en: 'Απελευθέρωση συναισθημάτων και ενεργειακή ισορροπία' },
+        body: { el: 'Αίσθηση ελαφρότητας, καθαρότητας και ενεργοποίηση του 5ου chakra.', en: 'Αίσθηση ελαφρότητας, καθαρότητας και ενεργοποίηση του 5ου chakra.' },
+      },
+      {
+        title: { el: 'Σύνδεση με το συλλογικό και προσωπική έκφραση', en: 'Σύνδεση με το συλλογικό και προσωπική έκφραση' },
+        body: { el: 'Ενίσχυση της αίσθησης ενότητας, αυτογνωσίας και δυνατότητας αυθεντικής έκφρασης.', en: 'Ενίσχυση της αίσθησης ενότητας, αυτογνωσίας και δυνατότητας αυθεντικής έκφρασης.' },
+      },
+    ],
+  },
+  story: {
+    containerId: 'about4',
+    block1: {
+      image: 'https://alexispatrikounakos.gr/wp-content/uploads/2025/12/rj4dmqsstrytzponpwoz-scaled.jpg',
+      imageAlt: { el: 'Ομαδικός Διαλογισμός', en: 'Ομαδικός Διαλογισμός' },
+      imageClassName: 'img-fluid',
+      title: { el: 'Συλλογική Σύνδεση & Γαλήνη', en: 'Συλλογική Σύνδεση & Γαλήνη' },
+      body: { el: 'Ο ομαδικός διαλογισμός είναι μια ήρεμη και υποστηρικτική συνάντηση ανθρώπων που επιλέγουν να κάνουν μια παύση από την καθημερινότητα και να στραφούν προς τα μέσα. Μέσα από καθοδήγηση, πρόθεση και συλλογική ενέργεια, δημιουργείται ένα πεδίο σύνδεσης, εσωτερικής γαλήνης και ενδυνάμωσης. Η εμπειρία αυτή βοηθά τους συμμετέχοντες να νιώσουν συνδεδεμένοι, να ηρεμήσουν και να επανασυνδεθούν με τον εσωτερικό τους κόσμο.', en: 'Ο ομαδικός διαλογισμός είναι μια ήρεμη και υποστηρικτική συνάντηση ανθρώπων που επιλέγουν να κάνουν μια παύση από την καθημερινότητα και να στραφούν προς τα μέσα. Μέσα από καθοδήγηση, πρόθεση και συλλογική ενέργεια, δημιουργείται ένα πεδίο σύνδεσης, εσωτερικής γαλήνης και ενδυνάμωσης. Η εμπειρία αυτή βοηθά τους συμμετέχοντες να νιώσουν συνδεδεμένοι, να ηρεμήσουν και να επανασυνδεθούν με τον εσωτερικό τους κόσμο.' },
+      ctaLabel: { el: 'Ενδιαφερομαι', en: 'Ενδιαφερομαι' },
+      ctaHref: '#interest3',
+    },
+    block2: {
+      image: 'https://alexispatrikounakos.gr/wp-content/uploads/2025/12/qgk11fqmuojfiaaecaht.jpg',
+      imageAlt: { el: 'review', en: 'review' },
+      imageClassName: 'img-fluid squareImg',
+      title: { el: 'Ομαδική Απελευθέρωση Συναισθημάτων', en: 'Ομαδική Απελευθέρωση Συναισθημάτων' },
+      body: { el: 'Το Μοίρασμα είναι μια διαδικτυακή συνάντηση που μας φέρνει στο παρόν και δίνει χώρο στην αυθεντική έκφραση. Μέσα από καθοδήγηση, ενεργοποιείται η σύνδεση με το σώμα, απελευθερώνονται εγκλωβισμένα συναισθήματα και δημιουργείται αίσθηση ηρεμίας. Παράλληλα ενδυναμώνεται η προσωπική έκφραση και ξεμπλοκάρεται το 5ο ενεργειακό κέντρο.', en: 'Το Μοίρασμα είναι μια διαδικτυακή συνάντηση που μας φέρνει στο παρόν και δίνει χώρο στην αυθεντική έκφραση. Μέσα από καθοδήγηση, ενεργοποιείται η σύνδεση με το σώμα, απελευθερώνονται εγκλωβισμένα συναισθήματα και δημιουργείται αίσθηση ηρεμίας. Παράλληλα ενδυναμώνεται η προσωπική έκφραση και ξεμπλοκάρεται το 5ο ενεργειακό κέντρο.' },
+      ctaLabel: { el: 'Ενδιαφερομαι', en: 'Ενδιαφερομαι' },
+      ctaHref: '#interest3',
+    },
+  },
+  faq: {
+    title: { el: 'FAQ', en: 'FAQ' },
+    subtitle: { el: 'Αν δεν βρεις την απάντηση που ψάχνεις, μην διστάσεις να επικοινωνήσεις μαζί μου.', en: 'Αν δεν βρεις την απάντηση που ψάχνεις, μην διστάσεις να επικοινωνήσεις μαζί μου.' },
+    items: [
+      {
+        id: 'FaqCollapse1',
+        question: { el: 'Πώς πραγματοποιείται ο ομαδικός διαλογισμός;', en: 'Πώς πραγματοποιείται ο ομαδικός διαλογισμός;' },
+        answer: { el: 'Η συνάντηση ξεκινά με ήπια καθοδήγηση, αναπνοές και σταδιακή χαλάρωση. Στη συνέχεια ακολουθεί ο διαλογισμός, ακολουθώντας τις απαλές οδηγίες του συντονιστή, όπου κάθε συμμετέχοντας συντονίζεται με τον εαυτό του αλλά και με τη συλλογική ενέργεια της ομάδας.', en: 'Η συνάντηση ξεκινά με ήπια καθοδήγηση, αναπνοές και σταδιακή χαλάρωση. Στη συνέχεια ακολουθεί ο διαλογισμός, ακολουθώντας τις απαλές οδηγίες του συντονιστή, όπου κάθε συμμετέχοντας συντονίζεται με τον εαυτό του αλλά και με τη συλλογική ενέργεια της ομάδας.' },
+        defaultOpen: true,
+        collapsedClass: true,
+      },
+      {
+        id: 'FaqCollapse2',
+        question: { el: ' Ποια είναι τα οφέλη του ομαδικού διαλογισμού;', en: ' Ποια είναι τα οφέλη του ομαδικού διαλογισμού;' },
+        answer: { el: 'Ομαλή ρύθμιση του νευρικού συστήματος, μείωση στρες, βαθιά χαλάρωση, ενίσχυση της διαίσθησης και της αίσθησης συλλογικότητας. Η ομάδα λειτουργεί σαν υποστηρικτικό πεδίο ενέργειας και συνειδητότητας.', en: 'Ομαλή ρύθμιση του νευρικού συστήματος, μείωση στρες, βαθιά χαλάρωση, ενίσχυση της διαίσθησης και της αίσθησης συλλογικότητας. Η ομάδα λειτουργεί σαν υποστηρικτικό πεδίο ενέργειας και συνειδητότητας.' },
+      },
+      {
+        id: 'FaqCollapse3',
+        question: { el: 'Χρειάζεται εμπειρία στον διαλογισμό;', en: 'Χρειάζεται εμπειρία στον διαλογισμό;' },
+        answer: { el: 'Καμία εμπειρία δεν είναι απαραίτητη. Οι συναντήσεις είναι κατάλληλες για αρχάριους αλλά και για άτομα με προηγούμενη πρακτική. Η καθοδήγηση γίνεται βήμα–βήμα.', en: 'Καμία εμπειρία δεν είναι απαραίτητη. Οι συναντήσεις είναι κατάλληλες για αρχάριους αλλά και για άτομα με προηγούμενη πρακτική. Η καθοδήγηση γίνεται βήμα–βήμα.' },
+        collapsedClass: true,
+      },
+      {
+        id: 'FaqCollapse10',
+        question: { el: 'Υπάρχει δυνατότητα για ατομικό Μοίρασμα;', en: 'Υπάρχει δυνατότητα για ατομικό Μοίρασμα;' },
+        answer: { el: 'Το Μοίρασμα δεν πραγματοποιείται σε ατομικό επίπεδο καθώς δεν εξυπηρετεί το βαθύτερο κομμάτι της έκθεσης και της σύνδεσης με τους άλλους. Ατομικό μοίρασμα γίνεται κατά τη διάρκεια των ατομικών συνεδριών.', en: 'Το Μοίρασμα δεν πραγματοποιείται σε ατομικό επίπεδο καθώς δεν εξυπηρετεί το βαθύτερο κομμάτι της έκθεσης και της σύνδεσης με τους άλλους. Ατομικό μοίρασμα γίνεται κατά τη διάρκεια των ατομικών συνεδριών.' },
+      },
+      {
+        id: 'FaqCollapse11',
+        question: { el: 'Θα μπορέσω να ενταχθώ στην ομάδα του διαλογισμού; Οι άλλοι διαλογίζονται και εμένα με παίρνει ο ύπνος.', en: 'Θα μπορέσω να ενταχθώ στην ομάδα του διαλογισμού; Οι άλλοι διαλογίζονται και εμένα με παίρνει ο ύπνος.' },
+        answer: { el: 'Δεν υπάρχει κάποια συγκεκριμένη ικανότητα ή επίπεδο όπου πρέπει να είναι κάποιος για να κάνει διαλογισμό και να ενταχθεί σε μια τέτοια διαδικασία. Ο καθένας πάει με τον ρυθμό του και η ενέργεια οδηγεί το κάθε άτομο εκεί που είναι το καλύτερο για εκείνο την συγκεκριμένη χρονική στιγμή. Ακόμα και ο ύπνος συμβαίνει επειδή η ενέργεια το επιτρέπει και το νευρικό σύστημα το χρειάζεται.', en: 'Δεν υπάρχει κάποια συγκεκριμένη ικανότητα ή επίπεδο όπου πρέπει να είναι κάποιος για να κάνει διαλογισμό και να ενταχθεί σε μια τέτοια διαδικασία. Ο καθένας πάει με τον ρυθμό του και η ενέργεια οδηγεί το κάθε άτομο εκεί που είναι το καλύτερο για εκείνο την συγκεκριμένη χρονική στιγμή. Ακόμα και ο ύπνος συμβαίνει επειδή η ενέργεια το επιτρέπει και το νευρικό σύστημα το χρειάζεται.' },
+      },
+      {
+        id: 'FaqCollapse12',
+        question: { el: 'Είναι επικίνδυνο;', en: 'Είναι επικίνδυνο;' },
+        answer: { el: 'Δεν υπάρχει κάποια επικινδυνότητα στο διαλογισμό. Είναι μια πολύ ασφαλής διαδικασία χαλάρωσης του νου και του νευρικού συστήματος. Ο καθένας πάει μέχρι εκεί που νιώθει. Αν κάτι δεν του ταιριάζει δεν συμμετέχει σε αυτό. Υπάρχει η ελευθέρια του να σταματήσει το άτομο όποια στιγμή θέλει κατά τη διάρκεια της διαδικασίας μένοντας απλώς σε σιωπή.', en: 'Δεν υπάρχει κάποια επικινδυνότητα στο διαλογισμό. Είναι μια πολύ ασφαλής διαδικασία χαλάρωσης του νου και του νευρικού συστήματος. Ο καθένας πάει μέχρι εκεί που νιώθει. Αν κάτι δεν του ταιριάζει δεν συμμετέχει σε αυτό. Υπάρχει η ελευθέρια του να σταματήσει το άτομο όποια στιγμή θέλει κατά τη διάρκεια της διαδικασίας μένοντας απλώς σε σιωπή.' },
+      },
+      {
+        id: 'FaqCollapse4',
+        question: { el: 'Πώς βοηθά η ομαδική ενέργεια στη διαδικασία;', en: 'Πώς βοηθά η ομαδική ενέργεια στη διαδικασία;' },
+        answer: { el: 'Η συλλογική πρόθεση δημιουργεί ένα ισχυρότερο ενεργειακό πεδίο, το οποίο ενισχύει την εσωτερική ηρεμία, την ενδυνάμωση και την απελευθέρωση συναισθημάτων με φυσικό τρόπο.', en: 'Η συλλογική πρόθεση δημιουργεί ένα ισχυρότερο ενεργειακό πεδίο, το οποίο ενισχύει την εσωτερική ηρεμία, την ενδυνάμωση και την απελευθέρωση συναισθημάτων με φυσικό τρόπο.' },
+      },
+      {
+        id: 'FaqCollapse5',
+        question: { el: 'Τι είναι το Μοίρασμα και πώς λειτουργεί;', en: 'Τι είναι το Μοίρασμα και πώς λειτουργεί;' },
+        answer: { el: 'Το Μοίρασμα είναι ένας ασφαλής χώρος όπου οι συμμετέχοντες μπορούν να εκφράσουν σκέψεις, συναισθήματα και εμπειρίες που αναδύθηκαν κατά τη διάρκεια της πρακτικής ή και των ημέρων που πέρασαν. Η διαδικασία ενισχύει την αυθεντικότητα, τη σύνδεση με τον εαυτό και τους άλλους και την απελευθέρωση του 5ου ενεργειακού κέντρου (chakra).', en: 'Το Μοίρασμα είναι ένας ασφαλής χώρος όπου οι συμμετέχοντες μπορούν να εκφράσουν σκέψεις, συναισθήματα και εμπειρίες που αναδύθηκαν κατά τη διάρκεια της πρακτικής ή και των ημέρων που πέρασαν. Η διαδικασία ενισχύει την αυθεντικότητα, τη σύνδεση με τον εαυτό και τους άλλους και την απελευθέρωση του 5ου ενεργειακού κέντρου (chakra).' },
+      },
+      {
+        id: 'FaqCollapse6',
+        question: { el: 'Τι είναι το 5ο ενεργειακό κέντρο;', en: 'Τι είναι το 5ο ενεργειακό κέντρο;' },
+        answer: { el: 'Το 5ο ενεργειακό κέντρο (chakra) είναι το Vishuddha (Βισούντα). Βρίσκεται στο λαιμό και το χρώμα του είναι το ανοιχτό μπλε. Συμβολίζει την επικοινωνία, την έκφραση, την αλήθεια, την ακρόαση και τη δημιουργικότητα. Συνδέεται με τον θυρεοειδή αδένα και τον λαιμό. Είναι η πηγή της αυθεντικής μας φωνής, μας επιτρέπει να εκφράζουμε τις σκέψεις μας, να παίρνουμε αποφάσεις και να ακούμε τους άλλους. Όταν αυτό είναι σε ανισορροπία οδηγεί σε φλυαρία, εσωστρέφεια ή ανασφάλεια. (βλέπε άρθρο για Chakra)', en: 'Το 5ο ενεργειακό κέντρο (chakra) είναι το Vishuddha (Βισούντα). Βρίσκεται στο λαιμό και το χρώμα του είναι το ανοιχτό μπλε. Συμβολίζει την επικοινωνία, την έκφραση, την αλήθεια, την ακρόαση και τη δημιουργικότητα. Συνδέεται με τον θυρεοειδή αδένα και τον λαιμό. Είναι η πηγή της αυθεντικής μας φωνής, μας επιτρέπει να εκφράζουμε τις σκέψεις μας, να παίρνουμε αποφάσεις και να ακούμε τους άλλους. Όταν αυτό είναι σε ανισορροπία οδηγεί σε φλυαρία, εσωστρέφεια ή ανασφάλεια. (βλέπε άρθρο για Chakra)' },
+        collapsedClass: true,
+      },
+      {
+        id: 'FaqCollapse7',
+        question: { el: 'Η συνάντηση γίνεται δια ζώσης ή online;', en: 'Η συνάντηση γίνεται δια ζώσης ή online;' },
+        answer: { el: 'Το Μοίρασμα πραγματοποιείται online, ενώ ο ομαδικός διαλογισμός μπορεί να γίνει τόσο δια ζώσης όσο και διαδικτυακά, ανάλογα με τη συνάντηση ή το πρόγραμμα.', en: 'Το Μοίρασμα πραγματοποιείται online, ενώ ο ομαδικός διαλογισμός μπορεί να γίνει τόσο δια ζώσης όσο και διαδικτυακά, ανάλογα με τη συνάντηση ή το πρόγραμμα.' },
+      },
+      {
+        id: 'FaqCollapse8',
+        question: { el: 'Γιατί να επιλέξω ομαδική θεραπεία και όχι ατομική συνεδρία;', en: 'Γιατί να επιλέξω ομαδική θεραπεία και όχι ατομική συνεδρία;' },
+        answer: { el: 'Η ομαδική θεραπεία εστιάζει σε άλλα κομμάτια απο ότι η ατομική. Στην ομαδική θεραπεία δουλεύουμε σε συλλογικό επίπεδο. Παρατηρούμε την αλληλεπίδραση μας με τους άλλους, ενισχύουμε την ενσυναίσθηση μας και αντιλαμβανόμαστε καλύτερα τα όρια μας και τη θέση μας μέσα στο σύνολο. Πόσο μας επιτρέπουμε να είμαστε ο αυθεντικός μας εαυτός μπροστά σε άλλους; Είναι ένα καθαρά προσωπικό θέμα για το τι σου ταιριάζει περισσότερο και τι νιώθεις ότι έχεις ανάγκη την κάθε στιγμή στη ζωή σου.', en: 'Η ομαδική θεραπεία εστιάζει σε άλλα κομμάτια απο ότι η ατομική. Στην ομαδική θεραπεία δουλεύουμε σε συλλογικό επίπεδο. Παρατηρούμε την αλληλεπίδραση μας με τους άλλους, ενισχύουμε την ενσυναίσθηση μας και αντιλαμβανόμαστε καλύτερα τα όρια μας και τη θέση μας μέσα στο σύνολο. Πόσο μας επιτρέπουμε να είμαστε ο αυθεντικός μας εαυτός μπροστά σε άλλους; Είναι ένα καθαρά προσωπικό θέμα για το τι σου ταιριάζει περισσότερο και τι νιώθεις ότι έχεις ανάγκη την κάθε στιγμή στη ζωή σου.' },
+      },
+      {
+        id: 'FaqCollapse9',
+        question: { el: 'Υπάρχει καθοδήγηση για το τι θα μοιραστούμε;', en: 'Υπάρχει καθοδήγηση για το τι θα μοιραστούμε;' },
+        answer: { el: 'Όχι. Ο καθένας είναι ελεύθερος να μοιραστεί ότι εκείνος θέλει ή και να μην μοιραστεί κάτι αν δεν το νιώθει.', en: 'Όχι. Ο καθένας είναι ελεύθερος να μοιραστεί ότι εκείνος θέλει ή και να μην μοιραστεί κάτι αν δεν το νιώθει.' },
+      },
+    ],
+  },
+  interest: {
+    sectionId: 'interest3',
+    title: { el: 'Εκδήλωση ενδιαφέροντος', en: 'Εκδήλωση ενδιαφέροντος' },
+    intro: { el: 'Συμπλήρωσε τα στοιχεία σου για να μάθεις περισσότερα και να εξασφαλίσεις τη θέση σου.', en: 'Συμπλήρωσε τα στοιχεία σου για να μάθεις περισσότερα και να εξασφαλίσεις τη θέση σου.' },
+    email: { el: 'info@alexpatrikounakos.gr ', en: 'info@alexpatrikounakos.gr ' },
+  },
+  inquiry: {
+    sideImage: 'https://alexispatrikounakos.gr/wp-content/uploads/2025/12/veaqo3bfn8yph0aqcywl-scaled.webp',
+    sideImageAlt: { el: '', en: '' },
+    cf7ShortcodeText: '[contact-form-7 id="d76dba0" title="Omadikos dialogismos moirasma"]',
+  },
+};
+
+export const seminarsPageConfig = {
+  intro: {
+    sectionExtraClass: 'mb-6',
+    backgroundImage: 'https://alexispatrikounakos.gr/wp-content/uploads/2025/12/Σεμιναρια-ΦΟΝΤΟ_noHYxv-scaled.webp',
+    backgroundPosition: 'center center',
+    headline: { el: 'Σεμινάρια Αυτογνωσίας & Προσωπικής Ανάπτυξης', en: 'Σεμινάρια Αυτογνωσίας & Προσωπικής Ανάπτυξης' },
+    subline: { el: 'Σύνδεση, έκφραση και ενδυνάμωση σε ένα ασφαλές περιβάλλον.', en: 'Σύνδεση, έκφραση και ενδυνάμωση σε ένα ασφαλές περιβάλλον.' },
+    ctaLabel: { el: 'Περισσοτερα', en: 'Περισσοτερα' },
+    ctaHref: '#about5',
+  },
+  benefits: {
+    sectionTitle: { el: 'Οφέλη της θεραπείας', en: 'Οφέλη της θεραπείας' },
+    cards: [
+      {
+        title: { el: 'Αυτογνωσία & Προσωπική Εξέλιξη', en: 'Αυτογνωσία & Προσωπική Εξέλιξη' },
+        body: { el: 'Ενίσχυση αυθεντικής έκφρασης, ξεκαθάρισμα ορίων και βαθύτερη κατανόηση του εαυτού για ουσιαστική μεταμόρφωση.', en: 'Ενίσχυση αυθεντικής έκφρασης, ξεκαθάρισμα ορίων και βαθύτερη κατανόηση του εαυτού για ουσιαστική μεταμόρφωση.' },
+      },
+      {
+        title: { el: 'Σύνδεση & Αίσθηση Ανήκειν', en: 'Σύνδεση & Αίσθηση Ανήκειν' },
+        body: { el: 'Δημιουργία ουσιαστικών δεσμών, αποδοχής και ενσυναίσθησης μέσα από τη δύναμη της ομάδας.', en: 'Δημιουργία ουσιαστικών δεσμών, αποδοχής και ενσυναίσθησης μέσα από τη δύναμη της ομάδας.' },
+      },
+      {
+        title: { el: 'Βαθιά Θεραπεία & Απελευθέρωση', en: 'Βαθιά Θεραπεία & Απελευθέρωση' },
+        body: { el: 'Διαχείριση τραυμάτων και περιοριστικών πεποιθήσεων μέσα σε ασφαλές, θεραπευτικό πλαίσιο.', en: 'Διαχείριση τραυμάτων και περιοριστικών πεποιθήσεων μέσα σε ασφαλές, θεραπευτικό πλαίσιο.' },
+      },
+    ],
+  },
+  story: {
+    containerId: 'about5',
+    block1: {
+      image: 'https://alexispatrikounakos.gr/wp-content/uploads/2025/12/Ομαδικη-Συνδεση-και-Αυτογνωσια_noHYxv-scaled.webp',
+      imageAlt: { el: 'Σεμινάρια Αυτογνωσίας', en: 'Σεμινάρια Αυτογνωσίας' },
+      title: { el: 'Ομαδική Σύνδεση και Αυτογνωσία', en: 'Ομαδική Σύνδεση και Αυτογνωσία' },
+      body: { el: 'Οι ομάδες και τα σεμινάρια αυτογνωσίας προσφέρουν ένα ασφαλές και υποστηρικτικό περιβάλλον στο οποίο τα άτομα συνδέονται με τον αυθεντικό εαυτό τους και εξελίσσονται σε προσωπικό επίπεδο. Με πρακτικές όπως το Ψυχόδραμα, ο Θεραπευτικός Χορός, ο Σαμανισμός, η Τάντρα και η Συστημική Αναπαράσταση, κάθε συνάντηση εστιάζει σε ένα συγκεκριμένο θέμα, προσφέροντας ασφάλεια, εμπιστοσύνη και βαθιά σύνδεση.', en: 'Οι ομάδες και τα σεμινάρια αυτογνωσίας προσφέρουν ένα ασφαλές και υποστηρικτικό περιβάλλον στο οποίο τα άτομα συνδέονται με τον αυθεντικό εαυτό τους και εξελίσσονται σε προσωπικό επίπεδο. Με πρακτικές όπως το Ψυχόδραμα, ο Θεραπευτικός Χορός, ο Σαμανισμός, η Τάντρα και η Συστημική Αναπαράσταση, κάθε συνάντηση εστιάζει σε ένα συγκεκριμένο θέμα, προσφέροντας ασφάλεια, εμπιστοσύνη και βαθιά σύνδεση.' },
+      ctaLabel: { el: 'Ενδιαφερομαι', en: 'Ενδιαφερομαι' },
+      ctaHref: '#interest4',
+    },
+    block2: {
+      image: 'https://alexispatrikounakos.gr/wp-content/uploads/2025/12/Μοιραζομαστε-Ομορφαινυμε-ανθιζουμε_noHYxv-1-scaled.webp',
+      imageAlt: { el: 'review', en: 'review' },
+      title: { el: 'Μοιραζόμαστε, Μαθαίνουμε, Ανθίζουμε', en: 'Μοιραζόμαστε, Μαθαίνουμε, Ανθίζουμε' },
+      body: { el: 'Οι συμμετέχοντες έχουν την ευκαιρία να επεξεργαστούν τραύματα και περιοριστικές πεποιθήσεις, να ενισχύσουν την αυθεντική τους έκφραση, να ανακαλύψουν τα όριά τους και να βιώσουν τη βαθύτερη κατανόηση και σύνδεση με τους άλλους. Η διαδικασία οδηγεί σε προσωπική ανάπτυξη, μεταμόρφωση και ενδυνάμωση σε όλα τα επίπεδα.', en: 'Οι συμμετέχοντες έχουν την ευκαιρία να επεξεργαστούν τραύματα και περιοριστικές πεποιθήσεις, να ενισχύσουν την αυθεντική τους έκφραση, να ανακαλύψουν τα όριά τους και να βιώσουν τη βαθύτερη κατανόηση και σύνδεση με τους άλλους. Η διαδικασία οδηγεί σε προσωπική ανάπτυξη, μεταμόρφωση και ενδυνάμωση σε όλα τα επίπεδα.' },
+      ctaLabel: { el: 'Ενδιαφερομαι', en: 'Ενδιαφερομαι' },
+      ctaHref: '#interest4',
+    },
+  },
+  faq: {
+    title: { el: 'FAQ', en: 'FAQ' },
+    subtitle: { el: 'Αν δεν βρεις την απάντηση που ψάχνεις, μην διστάσεις να επικοινωνήσεις μαζί μου.', en: 'Αν δεν βρεις την απάντηση που ψάχνεις, μην διστάσεις να επικοινωνήσεις μαζί μου.' },
+    items: [
+      {
+        id: 'FaqCollapse1',
+        question: { el: 'Τι περιλαμβάνει ένα σεμινάριο αυτογνωσίας;', en: 'Τι περιλαμβάνει ένα σεμινάριο αυτογνωσίας;' },
+        answer: { el: 'Κάθε σεμινάριο εστιάζει σε ένα συγκεκριμένο θεματικό κύκλο και περιλαμβάνει βιωματικές ασκήσεις, τεχνικές σωματικής έκφρασης, διαλογισμό, μοίρασμα και επεξεργασία εμπειριών μέσα σε ασφαλές και υποστηρικτικό περιβάλλον.', en: 'Κάθε σεμινάριο εστιάζει σε ένα συγκεκριμένο θεματικό κύκλο και περιλαμβάνει βιωματικές ασκήσεις, τεχνικές σωματικής έκφρασης, διαλογισμό, μοίρασμα και επεξεργασία εμπειριών μέσα σε ασφαλές και υποστηρικτικό περιβάλλον.' },
+        defaultOpen: true,
+        collapsedClass: true,
+      },
+      {
+        id: 'FaqCollapse2',
+        question: { el: 'Ποια είναι τα οφέλη της συμμετοχής;', en: 'Ποια είναι τα οφέλη της συμμετοχής;' },
+        answer: { el: 'Βελτίωση αυτογνωσίας, ψυχική ενδυνάμωση, απελευθέρωση μπλοκαρισμένης ενέργειας, θεραπεία τραυμάτων και περιοριστικών πεποιθήσεων, ξεκάθαρα όρια, ενίσχυση αυθεντικής έκφρασης και βαθύτερη σύνδεση με τον εαυτό και την ομάδα.', en: 'Βελτίωση αυτογνωσίας, ψυχική ενδυνάμωση, απελευθέρωση μπλοκαρισμένης ενέργειας, θεραπεία τραυμάτων και περιοριστικών πεποιθήσεων, ξεκάθαρα όρια, ενίσχυση αυθεντικής έκφρασης και βαθύτερη σύνδεση με τον εαυτό και την ομάδα.' },
+      },
+      {
+        id: 'FaqCollapse7',
+        question: { el: 'Θα πρέπει να έχω συγκεκριμένη ένδυση;', en: 'Θα πρέπει να έχω συγκεκριμένη ένδυση;' },
+        answer: { el: 'Όχι. Φόρεσε κάτι που να σε κάνει να νιώθεις άνετα μέσα σε αυτό.', en: 'Όχι. Φόρεσε κάτι που να σε κάνει να νιώθεις άνετα μέσα σε αυτό.' },
+      },
+      {
+        id: 'FaqCollapse3',
+        question: { el: 'Χρειάζεται προηγούμενη εμπειρία;', en: 'Χρειάζεται προηγούμενη εμπειρία;' },
+        answer: { el: 'Όχι. Τα σεμινάρια είναι κατάλληλα τόσο για αρχάριους όσο και για άτομα με εμπειρία σε αυτογνωσιακές πρακτικές. Η καθοδήγηση γίνεται πάντα βήμα - βήμα.', en: 'Όχι. Τα σεμινάρια είναι κατάλληλα τόσο για αρχάριους όσο και για άτομα με εμπειρία σε αυτογνωσιακές πρακτικές. Η καθοδήγηση γίνεται πάντα βήμα - βήμα.' },
+        collapsedClass: true,
+      },
+      {
+        id: 'FaqCollapse4',
+        question: { el: 'Είναι ατομικά ή ομαδικά τα σεμινάρια;', en: 'Είναι ατομικά ή ομαδικά τα σεμινάρια;' },
+        answer: { el: 'Τα περισσότερα σεμινάρια γίνονται ομαδικά, ώστε να αξιοποιείται η δυναμική, η υποστήριξη και η συλλογική ενέργεια της ομάδας. Κάποιες φορές προσφέρονται και ειδικές μικρές ομάδες.', en: 'Τα περισσότερα σεμινάρια γίνονται ομαδικά, ώστε να αξιοποιείται η δυναμική, η υποστήριξη και η συλλογική ενέργεια της ομάδας. Κάποιες φορές προσφέρονται και ειδικές μικρές ομάδες.' },
+      },
+      {
+        id: 'FaqCollapse5',
+        question: { el: 'Με ποιες μεθόδους δουλεύουμε;', en: 'Με ποιες μεθόδους δουλεύουμε;' },
+        answer: { el: 'Ανάλογα το σεμινάριο. Xρησιμοποιούνται εργαλεία από Ψυχόδραμα, Tantra (Τάντρα), Θεραπευτικό Χορό, Σαμανισμό, Συστημική Αναπαράσταση, Reiki, ενεργειακές πρακτικές και εμβάθυνση στο σώμα και την αναπνοή.', en: 'Ανάλογα το σεμινάριο. Xρησιμοποιούνται εργαλεία από Ψυχόδραμα, Tantra (Τάντρα), Θεραπευτικό Χορό, Σαμανισμό, Συστημική Αναπαράσταση, Reiki, ενεργειακές πρακτικές και εμβάθυνση στο σώμα και την αναπνοή.' },
+      },
+      {
+        id: 'FaqCollapse6',
+        question: { el: 'Σε ποιους απευθύνονται;', en: 'Σε ποιους απευθύνονται;' },
+        answer: { el: 'Σε όλους όσους θέλουν να εξελιχθούν, να δουλέψουν με τον εσωτερικό τους κόσμο, να επεξεργαστούν πεποιθήσεις ή συναισθήματα, να γνωρίσουν καλύτερα τον εαυτό τους και να βιώσουν πραγματική προσωπική αλλαγή.', en: 'Σε όλους όσους θέλουν να εξελιχθούν, να δουλέψουν με τον εσωτερικό τους κόσμο, να επεξεργαστούν πεποιθήσεις ή συναισθήματα, να γνωρίσουν καλύτερα τον εαυτό τους και να βιώσουν πραγματική προσωπική αλλαγή.' },
+      },
+    ],
+  },
+  interest: {
+    sectionId: 'interest4',
+    title: { el: 'Εκδήλωση ενδιαφέροντος', en: 'Εκδήλωση ενδιαφέροντος' },
+    intro: { el: 'Συμπλήρωσε τα στοιχεία σου για να μάθεις περισσότερα και να εξασφαλίσεις τη θέση σου.', en: 'Συμπλήρωσε τα στοιχεία σου για να μάθεις περισσότερα και να εξασφαλίσεις τη θέση σου.' },
+    email: { el: 'info@alexpatrikounakos.gr ', en: 'info@alexpatrikounakos.gr ' },
+  },
+  inquiry: {
+    sideImage: 'https://alexispatrikounakos.gr/wp-content/uploads/2025/12/lxxxr38lbdrafcqpwjwy_compressed-scaled.webp',
+    sideImageAlt: { el: '', en: '' },
+    cf7ShortcodeText: '[contact-form-7 id="7a26ae7" title="Omades seminaria aftognosias"]',
+  },
+};
+
+export const siteRoot: string = 'https://alexispatrikounakos.gr';
 
 export const eventsPageConfig: EventsPageConfig = {
   intro: {
@@ -552,10 +1082,3 @@ export const eventsPageConfig: EventsPageConfig = {
     ],
   },
 };
-
-export { reikiPageConfig } from './reikiPageConfig.seed.js';
-export { selfAwarenessPageConfig } from './selfAwarenessPageConfig.seed.js';
-export { cacaoPageConfig } from './cacaoPageConfig.seed.js';
-export { dancePageConfig } from './dancePageConfig.seed.js';
-export { groupMeditationPageConfig } from './groupMeditationPageConfig.seed.js';
-export { seminarsPageConfig } from './seminarsPageConfig.seed.js';
