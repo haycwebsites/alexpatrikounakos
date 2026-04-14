@@ -5,13 +5,24 @@
 
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import HomeIntroSection from '../sections/HomeIntroSection';
+import HomeServicesSection from '../sections/HomeServicesSection';
+import HomeAboutSection from '../sections/HomeAboutSection';
+import HomeNewsletterSection from '../sections/HomeNewsletterSection';
+import HomeVideosSection from '../sections/HomeVideosSection';
+import HomeContactSection from '../sections/HomeContactSection';
 
 export default function IndexPage() {
   return (
     <>
       <Navbar />
       <main>
-        {/* Home page sections injected by pipeline */}
+        <HomeIntroSection />
+        <HomeServicesSection />
+        <HomeAboutSection />
+        <HomeNewsletterSection />
+        <HomeVideosSection />
+        <HomeContactSection />
       </main>
       <Footer />
     </>

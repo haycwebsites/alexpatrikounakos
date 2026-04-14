@@ -1,10 +1,41 @@
-import { siteConfig, digitalProductsConfig, type DigitalProductsConfig } from '../config';
+import {
+  siteConfig,
+  digitalProductsConfig,
+  navigationConfig,
+  footerConfig,
+  homePageConfig,
+  reikiPageConfig,
+  selfAwarenessPageConfig,
+  cacaoPageConfig,
+  dancePageConfig,
+  groupMeditationPageConfig,
+  seminarsPageConfig,
+  type DigitalProductsConfig,
+  type NavigationConfig,
+  type FooterConfig,
+  type HomePageConfig,
+  type ReikiPageConfig,
+  type SelfAwarenessPageConfig,
+  type CacaoPageConfig,
+  type DancePageConfig,
+  type GroupMeditationPageConfig,
+  type SeminarsPageConfig,
+} from '../config';
 
 export interface RemoteConfig {
   version: number;
   exportedAt: string;
   siteConfig: typeof siteConfig;
   digitalProductsConfig?: DigitalProductsConfig;
+  navigationConfig: NavigationConfig;
+  footerConfig: FooterConfig;
+  homePageConfig: HomePageConfig;
+  reikiPageConfig: ReikiPageConfig;
+  selfAwarenessPageConfig: SelfAwarenessPageConfig;
+  cacaoPageConfig: CacaoPageConfig;
+  dancePageConfig: DancePageConfig;
+  groupMeditationPageConfig: GroupMeditationPageConfig;
+  seminarsPageConfig: SeminarsPageConfig;
 }
 
 export const defaultConfig: RemoteConfig = {
@@ -12,6 +43,15 @@ export const defaultConfig: RemoteConfig = {
   exportedAt: '',
   siteConfig,
   digitalProductsConfig,
+  navigationConfig,
+  footerConfig,
+  homePageConfig,
+  reikiPageConfig,
+  selfAwarenessPageConfig,
+  cacaoPageConfig,
+  dancePageConfig,
+  groupMeditationPageConfig,
+  seminarsPageConfig,
 };
 
 export async function fetchRemoteConfig(): Promise<RemoteConfig> {

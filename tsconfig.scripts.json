@@ -7,6 +7,15 @@
     "rootDir": ".",
     "noEmit": false
   },
-  "include": ["scripts/**/*", "src/config.ts"],
+  "include": [
+    "scripts/**/*",
+    "src/config.ts",
+    "src/reikiPageConfig.seed.ts",
+    "src/selfAwarenessPageConfig.seed.ts",
+    "src/cacaoPageConfig.seed.ts",
+    "src/dancePageConfig.seed.ts",
+    "src/groupMeditationPageConfig.seed.ts",
+    "src/seminarsPageConfig.seed.ts"
+  ],
   "exclude": ["scripts/pull-config.ts"]
 }
