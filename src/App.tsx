@@ -19,7 +19,7 @@ import {
   danceWithYourHeartPath,
   groupMeditationPath,
   seminarsPath,
-} from './config';
+} from './routes';
 // HAYC Pipeline: Additional page imports are added
 // here automatically during project creation.
 
