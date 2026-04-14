@@ -26,6 +26,8 @@ export default function HomeServicesSection() {
                 </div>
                 <div
                   className={`card-detail position-absolute${card.cardDetailExtraClass ? ` ${card.cardDetailExtraClass}` : ''}`}
+                  data-aos="zoom-in-up"
+                  data-aos-duration="2000"
                 >
                   <h3 className="display-6 fw-bold text-uppercase light">
                     {isClientRoute(card.href) ? (

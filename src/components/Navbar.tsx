@@ -23,13 +23,23 @@ export default function Navbar() {
       <nav
         className={`navbar navbar-expand-lg navbar-dark fixed-top py-3${scrolled ? ' scrolled' : ''}`}
       >
-        <a
-          className="navbar-brand text-uppercase text-white fw-bold m-0"
-          href={nav.brandHref}
-          {...cp('navigationConfig.brandName')}
-        >
-          {t(nav.brandName)}
-        </a>
+        {isClientRoute(nav.brandHref) ? (
+          <Link
+            className="navbar-brand text-uppercase text-white fw-bold m-0"
+            to={nav.brandHref}
+            {...cp('navigationConfig.brandName')}
+          >
+            {t(nav.brandName)}
+          </Link>
+        ) : (
+          <a
+            className="navbar-brand text-uppercase text-white fw-bold m-0"
+            href={nav.brandHref}
+            {...cp('navigationConfig.brandName')}
+          >
+            {t(nav.brandName)}
+          </a>
+        )}
 
         <button
           className="navbar-toggler"
@@ -94,13 +104,23 @@ export default function Navbar() {
                 </a>
               </li>
               <li className="nav-item">
-                <a
-                  className="nav-link text-white pe-4 ps-4 fw-bold"
-                  href={nav.home.href}
-                  {...cp('navigationConfig.home.label')}
-                >
-                  {t(nav.home.label)}
-                </a>
+                {isClientRoute(nav.home.href) ? (
+                  <Link
+                    className="nav-link text-white pe-4 ps-4 fw-bold"
+                    to={nav.home.href}
+                    {...cp('navigationConfig.home.label')}
+                  >
+                    {t(nav.home.label)}
+                  </Link>
+                ) : (
+                  <a
+                    className="nav-link text-white pe-4 ps-4 fw-bold"
+                    href={nav.home.href}
+                    {...cp('navigationConfig.home.label')}
+                  >
+                    {t(nav.home.label)}
+                  </a>
+                )}
               </li>
 
               <li className="nav-item dropdown">
@@ -146,24 +166,44 @@ export default function Navbar() {
                 </a>
               </li>
               <li className="nav-item">
-                <a
-                  className="nav-link text-uppercase text-white fw-bold pe-4 ps-4"
-                  href={nav.events.href}
-                  {...cp('navigationConfig.events.label')}
-                >
-                  {t(nav.events.label)}
-                </a>
+                {isClientRoute(nav.events.href) ? (
+                  <Link
+                    className="nav-link text-uppercase text-white fw-bold pe-4 ps-4"
+                    to={nav.events.href}
+                    {...cp('navigationConfig.events.label')}
+                  >
+                    {t(nav.events.label)}
+                  </Link>
+                ) : (
+                  <a
+                    className="nav-link text-uppercase text-white fw-bold pe-4 ps-4"
+                    href={nav.events.href}
+                    {...cp('navigationConfig.events.label')}
+                  >
+                    {t(nav.events.label)}
+                  </a>
+                )}
               </li>
             </ul>
 
             <div className="btn-box align-content-center align-items-center justify-content-center">
-              <a
-                href={nav.contactCta.href}
-                className="btn btn-pill btn-small btn-primary text-uppercase"
-                {...cp('navigationConfig.contactCta.label')}
-              >
-                {t(nav.contactCta.label)}
-              </a>
+              {isClientRoute(nav.contactCta.href) ? (
+                <Link
+                  to={nav.contactCta.href}
+                  className="btn btn-pill btn-small btn-primary text-uppercase"
+                  {...cp('navigationConfig.contactCta.label')}
+                >
+                  {t(nav.contactCta.label)}
+                </Link>
+              ) : (
+                <a
+                  href={nav.contactCta.href}
+                  className="btn btn-pill btn-small btn-primary text-uppercase"
+                  {...cp('navigationConfig.contactCta.label')}
+                >
+                  {t(nav.contactCta.label)}
+                </a>
+              )}
             </div>
           </div>
         </div>

@@ -1,3 +1,4 @@
+import { ContactForm } from '../../components/ContactForm';
 import { useHayc } from '../../hayc/config-context';
 
 export default function CacaoInquirySection() {
@@ -20,9 +21,7 @@ export default function CacaoInquirySection() {
           </div>
           <div className="col-md-6 px-5">
             <div className="lc-block mb-4">
-              <span {...cp('cacaoPageConfig.inquiry.cf7ShortcodeText')}>
-                {inquiry.cf7ShortcodeText}
-              </span>
+              <ContactForm mode="cf7-service" haycTags={['Cacao Ceremony']} />
             </div>
           </div>
         </div>

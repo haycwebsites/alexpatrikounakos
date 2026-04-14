@@ -41,7 +41,7 @@ export default function HomeContactSection() {
           </div>
           <div className="col-md-6 px-5">
             <div className="lc-block mb-4">
-              <ContactForm />
+              <ContactForm mode="cf7-home-contact" haycTags={['Contact form']} />
             </div>
           </div>
         </div>

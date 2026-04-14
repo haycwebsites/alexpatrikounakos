@@ -18,7 +18,7 @@ export default function ReikiStorySection() {
               />
             </div>
           </div>
-          <div className="col-lg-5 col-md-12 align-content-center">
+          <div className="col-lg-5 col-md-12 align-content-center" data-aos="fade-right">
             <div className="info-detail bg-primary-light h-100 p-4 align-content-center">
               <h3
                 className="text-black mb-4"
@@ -39,7 +39,10 @@ export default function ReikiStorySection() {
         </div>
 
         <div className="row gy-4">
-          <div className="col-lg-5 col-md-12 order-2 order-lg-1 align-content-center">
+          <div
+            className="col-lg-5 col-md-12 order-2 order-lg-1 align-content-center"
+            data-aos="fade-left"
+          >
             <div className="info-detail bg-primary-light h-100 p-4 align-content-center">
               <h3
                 className="text-black mb-4"

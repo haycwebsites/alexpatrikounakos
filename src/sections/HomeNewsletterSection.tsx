@@ -30,20 +30,23 @@ export default function HomeNewsletterSection() {
     <section id="newsletter" className="padding-medium">
       <div className="container-md">
         <div className="row">
-          <div className="newsletter-content" style={bgStyle}>
+          <div className="newsletter-content" style={bgStyle} data-aos="fade-left">
             <div className="col-lg-8 col-md-10 mx-auto text-center">
-              <h2 className="display-2 text-primary-dim fw-bold">
+              <h2 className="display-2 fw-bold newsletter-title">
                 <span {...cp('homePageConfig.newsletter.headingLead')}>
                   {t(nl.headingLead)}
                 </span>{' '}
                 <span
-                  className="text-secondary d-block"
+                  className="d-block newsletter-title-accent"
                   {...cp('homePageConfig.newsletter.headingAccent')}
                 >
                   {t(nl.headingAccent)}
                 </span>
               </h2>
-              <p className="mb-5" {...cp('homePageConfig.newsletter.description')}>
+              <p
+                className="mb-5 newsletter-description"
+                {...cp('homePageConfig.newsletter.description')}
+              >
                 {t(nl.description)}
               </p>
               <form
@@ -56,7 +59,7 @@ export default function HomeNewsletterSection() {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder={t(nl.emailPlaceholder)}
-                  className="border-rounded-40 text-light ps-5 fs-5 mx-auto position-relative newsletter-email-input"
+                  className="border-rounded-40 ps-5 fs-5 mx-auto position-relative newsletter-email-input"
                   autoComplete="email"
                   {...cp('homePageConfig.newsletter.emailPlaceholder')}
                 />

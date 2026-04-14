@@ -19,7 +19,7 @@ export default function DanceInterestSection() {
           <span {...cp('dancePageConfig.interest.intro')}>{t(interest.intro)}</span>
 
           <a
-            href={`mailto:${t(interest.email)} `}
+            href={`mailto:${t(interest.email)}`}
             {...cp('dancePageConfig.interest.email')}
           >
             {t(interest.email)}

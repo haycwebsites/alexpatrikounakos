@@ -21,7 +21,7 @@ export default function SelfAwarenessInquirySection() {
           </div>
           <div className="col-md-6 px-5">
             <div className="lc-block mb-4">
-              <ContactForm />
+              <ContactForm mode="cf7-service" haycTags={['Self Awareness']} />
             </div>
           </div>
         </div>

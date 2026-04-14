@@ -19,7 +19,7 @@ export default function SelfAwarenessBenefitsSection() {
           {cards.map((card, index) => (
             <div key={index} className="col-lg-4 col-md-6 d-flex">
               <div
-                className={`border bg-light text-dark p-4 d-flex flex-column h-100 justify-content-center hoverBox${card.cardInnerExtraClass ? ` ${card.cardInnerExtraClass}` : ''}`}
+                className={`border bg-white text-dark p-4 d-flex flex-column h-100 justify-content-center hoverBox${card.cardInnerExtraClass ? ` ${card.cardInnerExtraClass}` : ''}`}
               >
                 <h4
                   className=""

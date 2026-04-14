@@ -19,7 +19,7 @@ export default function SeminarsBenefitsSection() {
         <div className="row g-4">
           {cards.map((card, index) => (
             <div key={index} className="col-lg-4 col-md-6">
-              <div className="border bg-light text-dark p-4 d-flex flex-column h-100 justify-content-center hoverBox">
+              <div className="border bg-white text-dark p-4 d-flex flex-column h-100 justify-content-center hoverBox">
                 <h4 {...cp(`seminarsPageConfig.benefits.cards.${index}.title`)}>
                   {t(card.title)}
                 </h4>

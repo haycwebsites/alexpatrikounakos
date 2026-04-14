@@ -1,3 +1,4 @@
+import { ContactForm } from '../../components/ContactForm';
 import { useHayc } from '../../hayc/config-context';
 
 export default function SeminarsInquirySection() {
@@ -20,9 +21,7 @@ export default function SeminarsInquirySection() {
           </div>
           <div className="col-md-6 px-5">
             <div className="lc-block mb-4">
-              <span {...cp('seminarsPageConfig.inquiry.cf7ShortcodeText')}>
-                {inquiry.cf7ShortcodeText}
-              </span>
+              <ContactForm mode="cf7-service" haycTags={['Seminars']} />
             </div>
           </div>
         </div>

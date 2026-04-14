@@ -4,6 +4,7 @@ import {
   navigationConfig,
   footerConfig,
   homePageConfig,
+  eventsPageConfig,
   reikiPageConfig,
   selfAwarenessPageConfig,
   cacaoPageConfig,
@@ -14,6 +15,7 @@ import {
   type NavigationConfig,
   type FooterConfig,
   type HomePageConfig,
+  type EventsPageConfig,
   type ReikiPageConfig,
   type SelfAwarenessPageConfig,
   type CacaoPageConfig,
@@ -30,6 +32,7 @@ export interface RemoteConfig {
   navigationConfig: NavigationConfig;
   footerConfig: FooterConfig;
   homePageConfig: HomePageConfig;
+  eventsPageConfig: EventsPageConfig;
   reikiPageConfig: ReikiPageConfig;
   selfAwarenessPageConfig: SelfAwarenessPageConfig;
   cacaoPageConfig: CacaoPageConfig;
@@ -46,6 +49,7 @@ export const defaultConfig: RemoteConfig = {
   navigationConfig,
   footerConfig,
   homePageConfig,
+  eventsPageConfig,
   reikiPageConfig,
   selfAwarenessPageConfig,
   cacaoPageConfig,

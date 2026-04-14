@@ -157,6 +157,29 @@ export interface HomePageConfig {
   contact: HomeContactConfig;
 }
 
+export interface EventsIntroConfig {
+  backgroundImage: string;
+  title: LocaleString;
+}
+
+export interface EventsItemConfig {
+  id: string;
+  image: string;
+  imageAlt: LocaleString;
+  title: LocaleString;
+  meta: LocaleString;
+  description: LocaleString;
+  ctaLabel: LocaleString;
+  ctaHref: string;
+}
+
+export interface EventsPageConfig {
+  intro: EventsIntroConfig;
+  events: {
+    items: EventsItemConfig[];
+  };
+}
+
 export type {
   ReikiHeroConfig,
   ReikiBenefitCard,
@@ -247,14 +270,14 @@ export const seminarsPath = '/σεμινάρια-αυτογνωσίας';
 
 export const navigationConfig: NavigationConfig = {
   brandName: { el: 'Alexis Patrikounakos', en: 'Alexis Patrikounakos' },
-  brandHref: `${siteRoot}/`,
+  brandHref: '/',
   socialFacebookHref:
     'https://www.facebook.com/profile.php?id=100077095013637',
   socialInstagramHref:
     'https://www.instagram.com/alexis_patrikounakos?igsh=MXZhbmMycWpkdHRpZQ==',
   socialFacebookAria: { el: 'Facebook', en: 'Facebook' },
   socialInstagramAria: { el: 'Instagram', en: 'Instagram' },
-  home: { label: { el: 'Αρχικη', en: 'Home' }, href: `${siteRoot}/` },
+  home: { label: { el: 'Αρχικη', en: 'Home' }, href: '/' },
   servicesToggle: { el: 'Υπηρεσιες', en: 'Services' },
   services: [
     {
@@ -320,10 +343,10 @@ export const footerConfig: FooterConfig = {
     el: 'Copyright © 2026 All Right Reserved.',
     en: 'Copyright © 2026 All Right Reserved.',
   },
-  creditMadeBy: { el: 'Κατασκευή από', en: 'Made by' },
+  creditMadeBy: { el: 'Made by', en: 'Made by' },
   creditVendorName: { el: 'hayc', en: 'hayc' },
   creditVendorHref: 'https://hayc.gr/',
-  creditMadeWith: { el: 'με 💙', en: 'with 💙' },
+  creditMadeWith: { el: 'with 💙', en: 'with 💙' },
 };
 
 export const homePageConfig: HomePageConfig = {
@@ -497,6 +520,36 @@ export const homePageConfig: HomePageConfig = {
       el: 'Φόρμα επικοινωνίας',
       en: 'Contact form illustration',
     },
+  },
+};
+
+export const eventsPageConfig: EventsPageConfig = {
+  intro: {
+    backgroundImage: `${siteRoot}/wp-content/uploads/2025/12/Cacao2_noHYxv_11zon-scaled.webp`,
+    title: { el: 'Events', en: 'Events' },
+  },
+  events: {
+    items: [
+      {
+        id: 'event-1',
+        image: `${siteRoot}/wp-content/uploads/2026/02/natalia-sobolivska-Gua91HwwJAs-unsplash-768x1152.jpg`,
+        imageAlt: { el: 'Event image', en: 'Event image' },
+        title: {
+          el: 'Ecstatic Dance "Χόρεψε Με Τον Εσωτερικό Σου Σύντροφο"',
+          en: 'Ecstatic Dance "Dance with your inner partner"',
+        },
+        meta: {
+          el: "Κυρικη 15/2/26 18:00-20:00 - Gandhi's Cup of Tea Yoga & Pilates Studio",
+          en: "Sunday 15/2/26 18:00-20:00 - Gandhi's Cup of Tea Yoga & Pilates Studio",
+        },
+        description: {
+          el: 'Το Ecstatic Dance είναι μια μορφή χορού στην οποία οι «χορευτές» δεν χρειάζεται να ακολουθήσουν συγκεκριμένα βήματα, απελευθερώνονται στον ρυθμό και κινούνται ελεύθερα καθώς τους οδηγεί η μουσική… αφήνοντας έτσι το σώμα τους να εκφραστεί ελεύθερα και να βγάλει ότι θέλει μέσα από την κίνηση, τόσο σε συνεισθηματικό επίπεδο όσο και σε σωματικό. Είναι μια διαδικασία ανακούφισης, ενεργοποίησης, συνειδητοποίησης και σύνδεσης με το βαθύ κομμάτι του εαυτού. Το Ecstatic Dance έχει περιγραφεί ως μια μορφή διαλογισμού , που μερικές φορές χρησιμοποιείται για να βοηθήσει στη διαχείριση του στρες και για να προχωρήσει κανείς σε μια κατάσταση γαλήνης μέσω συνειδητοποιήσεων ή απλής συναισθηματικής / σωματικής εκτόνωσης. Είναι μια καθαρά βιωματική και προσωπική εμπειρία που αξίζει να τη ζήσεις. Στο συγκεκριμένο event θα συνδεθούμε με το βαθύ κομμάτι του συντρόφου μέσα μας. Θα δώσουμε στο σώμα την ευκαιρία να χορέψει ελεύθερο με τον εαυτό μας σε όλο του το φάσμα, χωρίς να αναζητά κάποιον εξωτερικό παρτενέρ είτε από ανάγκη είτε από αμηχανία είτε από συνήθεια. Αν θέλεις να συνδεθείς με την ολότητα σου και να αφήσεις για λίγό τους ρυθμούς και τα άγχη της καθημερινότητας σε περιμένω με πολλή χαρά!!!',
+          en: 'Ecstatic Dance is a form of movement where you don’t follow steps—you surrender to the rhythm and move freely as the music guides you. It supports release, activation, insight, and connection with your deeper self. In this event we connect with the inner partner within us, giving the body space to dance its full spectrum without seeking an external partner. If you want to reconnect with your wholeness and pause the pace of everyday life, you are warmly welcome.',
+        },
+        ctaLabel: { el: 'Ενδιαφερομαι', en: 'I am interested' },
+        ctaHref: '#contact',
+      },
+    ],
   },
 };
 
