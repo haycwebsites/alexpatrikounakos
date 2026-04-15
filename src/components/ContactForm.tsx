@@ -10,6 +10,7 @@ const labelsByMode: Record<ContactFormMode, Record<string, { el: string; en: str
     messageLabel: { el: 'Μήνυμα', en: 'Message' },
     submitButton: { el: 'Αποστολή', en: 'Send Message' },
     submitting: { el: 'Αποστολή...', en: 'Sending...' },
+    mailtoSubjectFallback: { el: 'Επικοινωνία', en: 'Contact' },
     successTitle: { el: 'Το μήνυμά σας στάλθηκε!', en: 'Message sent!' },
     successText: {
       el: 'Θα επικοινωνήσουμε μαζί σας σύντομα.',
@@ -32,6 +33,7 @@ const labelsByMode: Record<ContactFormMode, Record<string, { el: string; en: str
     newsletterLabel: { el: 'Subscribe to our newsletter', en: 'Subscribe to our newsletter' },
     submitButton: { el: 'Εγγραφή', en: 'Subscribe' },
     submitting: { el: 'Αποστολή...', en: 'Sending...' },
+    mailtoSubjectFallback: { el: 'Επικοινωνία', en: 'Contact' },
     successTitle: { el: 'Η εγγραφή στάλθηκε!', en: 'Request sent!' },
     successText: {
       el: 'Θα επικοινωνήσουμε μαζί σας σύντομα.',
@@ -54,6 +56,7 @@ const labelsByMode: Record<ContactFormMode, Record<string, { el: string; en: str
     newsletterLabel: { el: 'Subscribe to our newsletter', en: 'Subscribe to our newsletter' },
     submitButton: { el: 'Εγγραφή', en: 'Subscribe' },
     submitting: { el: 'Αποστολή...', en: 'Sending...' },
+    mailtoSubjectFallback: { el: 'Επικοινωνία', en: 'Contact' },
     successTitle: { el: 'Η εγγραφή στάλθηκε!', en: 'Request sent!' },
     successText: {
       el: 'Θα επικοινωνήσουμε μαζί σας σύντομα.',
@@ -79,8 +82,15 @@ export function ContactForm({
   haycTags?: string[];
 }) {
   const { t, config } = useHayc();
-  const siteId = config.siteConfig.siteId;
-  const apiUrl = config.siteConfig.apiUrl;
+  const envSiteId =
+    (import.meta as unknown as { env?: Record<string, string | undefined> }).env?.VITE_HAYC_SITE_ID ??
+    (import.meta as unknown as { env?: Record<string, string | undefined> }).env?.VITE_SITE_ID;
+  const envApiUrl =
+    (import.meta as unknown as { env?: Record<string, string | undefined> }).env?.VITE_HAYC_API_URL ??
+    (import.meta as unknown as { env?: Record<string, string | undefined> }).env?.VITE_API_URL;
+
+  const siteId = config.siteConfig.siteId || envSiteId || '';
+  const apiUrl = config.siteConfig.apiUrl || envApiUrl || '';
   const labels = useMemo(() => labelsByMode[mode], [mode]);
 
   const [name, setName] = useState(''); // basic mode
@@ -140,29 +150,85 @@ export function ContactForm({
       setError(null);
       if (!validate()) return;
 
+      // If backend config isn't available, still "works" by opening a mailto draft.
       if (!apiUrl || !siteId) {
-        setError(t(labels.errorText));
+        const to = t(config.footerConfig.contactEmail);
+        const mailSubject = encodeURIComponent(subject.trim() || t(labels.mailtoSubjectFallback));
+        const mailBody = encodeURIComponent(
+          [
+            `Name: ${(mode === 'cf7-service' || mode === 'cf7-home-contact' ? firstName : name).trim()}`,
+            `Email: ${email.trim()}`,
+            phone.trim() ? `Phone: ${phone.trim()}` : '',
+            subject.trim() ? `Subject: ${subject.trim()}` : '',
+            message.trim() ? `Message: ${message.trim()}` : '',
+            newsletterSubscribe ? `Newsletter: yes` : '',
+            mode === 'cf7-service' || mode === 'cf7-home-contact'
+              ? `Tags: ${(haycTags ?? []).join(', ')}`
+              : '',
+          ]
+            .filter(Boolean)
+            .join('\n')
+        );
+
+        window.location.href = `mailto:${to}?subject=${mailSubject}&body=${mailBody}`;
+        setSubmitted(true);
         return;
       }
 
       setLoading(true);
       try {
-        const res = await fetch(`${apiUrl}/public/contact`, {
+        const endpoint = import.meta.env.DEV ? '/public/contact' : `${apiUrl}/public/contact`;
+        const res = await fetch(endpoint, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
             siteId,
             name: (mode === 'cf7-service' || mode === 'cf7-home-contact' ? firstName : name).trim(),
             email: email.trim(),
-            message: message.trim(),
-            phone: phone.trim(),
-            subject: subject.trim(),
-            newsletterSubscribe,
-            haycTags: mode === 'cf7-service' || mode === 'cf7-home-contact' ? (haycTags ?? []) : [],
+            // Keep payload aligned with HAYC's documented shape; include extra details in message.
+            message: [
+              subject.trim() ? `Subject: ${subject.trim()}` : '',
+              phone.trim() ? `Phone: ${phone.trim()}` : '',
+              newsletterSubscribe ? `Newsletter: yes` : '',
+              mode === 'cf7-service' || mode === 'cf7-home-contact'
+                ? (haycTags ?? []).length
+                  ? `Tags: ${(haycTags ?? []).join(', ')}`
+                  : ''
+                : '',
+              message.trim(),
+            ]
+              .filter(Boolean)
+              .join('\n'),
             _hp: hp,
           }),
         });
-        if (!res.ok) throw new Error('Request failed');
+        if (!res.ok) {
+          const details = await res.text().catch(() => '');
+          let devErrorDetail = '';
+          try {
+            const parsed = JSON.parse(details) as { error?: string };
+            if (parsed?.error) devErrorDetail = parsed.error;
+          } catch {
+            // ignore non-JSON errors
+          }
+          console.error('[ContactForm] submit failed', {
+            status: res.status,
+            statusText: res.statusText,
+            details: details?.slice?.(0, 500),
+            endpoint,
+            apiUrl,
+            siteId,
+          });
+
+          // In dev, surface the backend reason to avoid guesswork.
+          if (import.meta.env.DEV) {
+            const msg = devErrorDetail || details || res.statusText || 'Request failed';
+            setError(`${t(labels.errorText)} (${res.status}: ${msg})`);
+            return;
+          }
+
+          throw new Error('Request failed');
+        }
         setSubmitted(true);
       } catch {
         setError(t(labels.errorText));
@@ -170,7 +236,24 @@ export function ContactForm({
         setLoading(false);
       }
     },
-    [apiUrl, siteId, mode, name, firstName, email, phone, subject, message, newsletterSubscribe, haycTags, hp, validate, t]
+    [
+      apiUrl,
+      siteId,
+      mode,
+      name,
+      firstName,
+      email,
+      phone,
+      subject,
+      message,
+      newsletterSubscribe,
+      haycTags,
+      hp,
+      validate,
+      t,
+      labels,
+      config.footerConfig.contactEmail,
+    ]
   );
 
   if (submitted) {

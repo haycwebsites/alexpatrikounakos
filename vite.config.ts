@@ -11,4 +11,15 @@ export default defineConfig({
       "@": path.resolve(__dirname, "./src"),
     },
   },
+  server: {
+    proxy: {
+      // Avoid CORS in local dev by proxying to HAYC API
+      "/public/contact": {
+        // Use hayc.gr contact API in local dev
+        target: "https://hayc.gr",
+        changeOrigin: true,
+        secure: true,
+      },
+    },
+  },
 });
