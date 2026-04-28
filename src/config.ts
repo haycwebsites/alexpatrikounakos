@@ -240,7 +240,7 @@ export const siteConfig: SiteConfig = {
   ogImage: '',
   canonical: '',
   siteId: 'alexis-patrikounakos',
-  apiUrl: 'https://hayc.gr',
+  apiUrl: 'https://harmonious-embrace-staging.up.railway.app',
 };
 
 export const digitalProductsConfig: DigitalProductsConfig = {
