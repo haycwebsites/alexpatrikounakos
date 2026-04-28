@@ -1,148 +1,63 @@
-import { useMemo, useState, useCallback } from 'react';
+import { useState, useCallback } from 'react';
 import { useHayc } from '../hayc/config-context';
 
-type ContactFormMode = 'basic' | 'cf7-service' | 'cf7-home-contact';
-
-const labelsByMode: Record<ContactFormMode, Record<string, { el: string; en: string }>> = {
-  basic: {
-    nameLabel: { el: 'Όνομα', en: 'Name' },
-    emailLabel: { el: 'Email', en: 'Email' },
-    messageLabel: { el: 'Μήνυμα', en: 'Message' },
-    submitButton: { el: 'Αποστολή', en: 'Send Message' },
-    submitting: { el: 'Αποστολή...', en: 'Sending...' },
-    mailtoSubjectFallback: { el: 'Επικοινωνία', en: 'Contact' },
-    successTitle: { el: 'Το μήνυμά σας στάλθηκε!', en: 'Message sent!' },
-    successText: {
-      el: 'Θα επικοινωνήσουμε μαζί σας σύντομα.',
-      en: 'We will get back to you shortly.',
-    },
-    errorText: {
-      el: 'Κάτι πήγε στραβά. Παρακαλώ δοκιμάστε ξανά.',
-      en: 'Something went wrong. Please try again.',
-    },
-    nameRequired: { el: 'Το όνομα είναι υποχρεωτικό.', en: 'Name is required.' },
-    emailInvalid: { el: 'Εισάγετε έγκυρο email.', en: 'Please enter a valid email.' },
-    messageRequired: { el: 'Το μήνυμα είναι υποχρεωτικό.', en: 'Message is required.' },
+const labels = {
+  nameLabel: { el: 'Όνομα', en: 'Name' },
+  emailLabel: { el: 'Email', en: 'Email' },
+  messageLabel: { el: 'Μήνυμα', en: 'Message' },
+  submitButton: { el: 'Αποστολή', en: 'Send Message' },
+  submitting: { el: 'Αποστολή...', en: 'Sending...' },
+  successTitle: { el: 'Το μήνυμά σας στάλθηκε!', en: 'Message sent!' },
+  successText: {
+    el: 'Θα επικοινωνήσουμε μαζί σας σύντομα.',
+    en: 'We will get back to you shortly.',
   },
-  'cf7-service': {
-    firstNameLabel: { el: 'Το όνομά σου', en: 'Your name' },
-    emailLabel: { el: 'Το email σου', en: 'Your email' },
-    phoneLabel: { el: 'Το τηλέφωνο σου', en: 'Your phone' },
-    subjectLabel: { el: 'Θέμα', en: 'Subject' },
-    messageLabel: { el: 'Στείλε μήνυμα (Προαιρετικό)', en: 'Message (optional)' },
-    newsletterLabel: { el: 'Subscribe to our newsletter', en: 'Subscribe to our newsletter' },
-    submitButton: { el: 'Εγγραφή', en: 'Subscribe' },
-    submitting: { el: 'Αποστολή...', en: 'Sending...' },
-    mailtoSubjectFallback: { el: 'Επικοινωνία', en: 'Contact' },
-    successTitle: { el: 'Η εγγραφή στάλθηκε!', en: 'Request sent!' },
-    successText: {
-      el: 'Θα επικοινωνήσουμε μαζί σας σύντομα.',
-      en: 'We will get back to you shortly.',
-    },
-    errorText: {
-      el: 'Κάτι πήγε στραβά. Παρακαλώ δοκιμάστε ξανά.',
-      en: 'Something went wrong. Please try again.',
-    },
-    firstNameRequired: { el: 'Το όνομα είναι υποχρεωτικό.', en: 'Name is required.' },
-    emailInvalid: { el: 'Εισάγετε έγκυρο email.', en: 'Please enter a valid email.' },
-    phoneRequired: { el: 'Το τηλέφωνο είναι υποχρεωτικό.', en: 'Phone is required.' },
-    subjectRequired: { el: 'Το θέμα είναι υποχρεωτικό.', en: 'Subject is required.' },
+  errorText: {
+    el: 'Κάτι πήγε στραβά. Παρακαλώ δοκιμάστε ξανά.',
+    en: 'Something went wrong. Please try again.',
   },
-  'cf7-home-contact': {
-    firstNameLabel: { el: 'Το όνομά σου', en: 'Your name' },
-    emailLabel: { el: 'Το email σου', en: 'Your email' },
-    subjectLabel: { el: 'Θέμα', en: 'Subject' },
-    messageLabel: { el: 'Στείλε μήνυμα (Προαιρετικό)', en: 'Message (optional)' },
-    newsletterLabel: { el: 'Subscribe to our newsletter', en: 'Subscribe to our newsletter' },
-    submitButton: { el: 'Εγγραφή', en: 'Subscribe' },
-    submitting: { el: 'Αποστολή...', en: 'Sending...' },
-    mailtoSubjectFallback: { el: 'Επικοινωνία', en: 'Contact' },
-    successTitle: { el: 'Η εγγραφή στάλθηκε!', en: 'Request sent!' },
-    successText: {
-      el: 'Θα επικοινωνήσουμε μαζί σας σύντομα.',
-      en: 'We will get back to you shortly.',
-    },
-    errorText: {
-      el: 'Κάτι πήγε στραβά. Παρακαλώ δοκιμάστε ξανά.',
-      en: 'Something went wrong. Please try again.',
-    },
-    firstNameRequired: { el: 'Το όνομα είναι υποχρεωτικό.', en: 'Name is required.' },
-    emailInvalid: { el: 'Εισάγετε έγκυρο email.', en: 'Please enter a valid email.' },
-    subjectRequired: { el: 'Το θέμα είναι υποχρεωτικό.', en: 'Subject is required.' },
+  nameRequired: {
+    el: 'Το όνομα είναι υποχρεωτικό.',
+    en: 'Name is required.',
+  },
+  emailInvalid: {
+    el: 'Εισάγετε έγκυρο email.',
+    en: 'Please enter a valid email.',
+  },
+  messageRequired: {
+    el: 'Το μήνυμα είναι υποχρεωτικό.',
+    en: 'Message is required.',
   },
 };
 
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-export function ContactForm({
-  mode = 'basic',
-  haycTags,
-}: {
-  mode?: ContactFormMode;
-  haycTags?: string[];
-}) {
+export function ContactForm() {
   const { t, config } = useHayc();
-  const envSiteId =
-    (import.meta as unknown as { env?: Record<string, string | undefined> }).env?.VITE_HAYC_SITE_ID ??
-    (import.meta as unknown as { env?: Record<string, string | undefined> }).env?.VITE_SITE_ID;
-  const envApiUrl =
-    (import.meta as unknown as { env?: Record<string, string | undefined> }).env?.VITE_HAYC_API_URL ??
-    (import.meta as unknown as { env?: Record<string, string | undefined> }).env?.VITE_API_URL;
+  const siteId = config.siteConfig.siteId;
+  const apiUrl = config.siteConfig.apiUrl;
 
-  const siteId = config.siteConfig.siteId || envSiteId || '';
-  const apiUrl = config.siteConfig.apiUrl || envApiUrl || '';
-  const labels = useMemo(() => labelsByMode[mode], [mode]);
-
-  const [name, setName] = useState(''); // basic mode
-  const [firstName, setFirstName] = useState(''); // cf7-cacao
+  const [name, setName] = useState('');
   const [email, setEmail] = useState('');
-  const [phone, setPhone] = useState('');
-  const [subject, setSubject] = useState('');
   const [message, setMessage] = useState('');
-  const [newsletterSubscribe, setNewsletterSubscribe] = useState(false);
   const [hp, setHp] = useState('');
   const [loading, setLoading] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [fieldErrors, setFieldErrors] = useState<{
     name?: string;
-    firstName?: string;
     email?: string;
-    phone?: string;
-    subject?: string;
     message?: string;
   }>({});
 
   const validate = useCallback((): boolean => {
-    const errors: {
-      name?: string;
-      firstName?: string;
-      email?: string;
-      phone?: string;
-      subject?: string;
-      message?: string;
-    } = {};
-
-    if (mode === 'basic') {
-      if (!name.trim()) errors.name = t(labels.nameRequired);
-      if (!EMAIL_PATTERN.test(email.trim())) errors.email = t(labels.emailInvalid);
-      if (!message.trim()) errors.message = t(labels.messageRequired);
-    } else if (mode === 'cf7-service') {
-      if (!firstName.trim()) errors.firstName = t(labels.firstNameRequired);
-      if (!EMAIL_PATTERN.test(email.trim())) errors.email = t(labels.emailInvalid);
-      if (!phone.trim()) errors.phone = t(labels.phoneRequired);
-      if (!subject.trim()) errors.subject = t(labels.subjectRequired);
-      // message is optional
-    } else if (mode === 'cf7-home-contact') {
-      if (!firstName.trim()) errors.firstName = t(labels.firstNameRequired);
-      if (!EMAIL_PATTERN.test(email.trim())) errors.email = t(labels.emailInvalid);
-      if (!subject.trim()) errors.subject = t(labels.subjectRequired);
-      // message is optional
-    }
-
+    const errors: { name?: string; email?: string; message?: string } = {};
+    if (!name.trim()) errors.name = t(labels.nameRequired);
+    if (!EMAIL_PATTERN.test(email.trim())) errors.email = t(labels.emailInvalid);
+    if (!message.trim()) errors.message = t(labels.messageRequired);
     setFieldErrors(errors);
     return Object.keys(errors).length === 0;
-  }, [mode, name, firstName, email, phone, subject, message, t, labels]);
+  }, [name, email, message, t]);
 
   const handleSubmit = useCallback(
     async (e: React.FormEvent) => {
@@ -150,85 +65,25 @@ export function ContactForm({
       setError(null);
       if (!validate()) return;
 
-      // If backend config isn't available, still "works" by opening a mailto draft.
       if (!apiUrl || !siteId) {
-        const to = t(config.footerConfig.contactEmail);
-        const mailSubject = encodeURIComponent(subject.trim() || t(labels.mailtoSubjectFallback));
-        const mailBody = encodeURIComponent(
-          [
-            `Name: ${(mode === 'cf7-service' || mode === 'cf7-home-contact' ? firstName : name).trim()}`,
-            `Email: ${email.trim()}`,
-            phone.trim() ? `Phone: ${phone.trim()}` : '',
-            subject.trim() ? `Subject: ${subject.trim()}` : '',
-            message.trim() ? `Message: ${message.trim()}` : '',
-            newsletterSubscribe ? `Newsletter: yes` : '',
-            mode === 'cf7-service' || mode === 'cf7-home-contact'
-              ? `Tags: ${(haycTags ?? []).join(', ')}`
-              : '',
-          ]
-            .filter(Boolean)
-            .join('\n')
-        );
-
-        window.location.href = `mailto:${to}?subject=${mailSubject}&body=${mailBody}`;
-        setSubmitted(true);
+        setError(t(labels.errorText));
         return;
       }
 
       setLoading(true);
       try {
-        const endpoint = import.meta.env.DEV ? '/public/contact' : `${apiUrl}/public/contact`;
-        const res = await fetch(endpoint, {
+        const res = await fetch(`${apiUrl}/public/contact`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
             siteId,
-            name: (mode === 'cf7-service' || mode === 'cf7-home-contact' ? firstName : name).trim(),
+            name: name.trim(),
             email: email.trim(),
-            // Keep payload aligned with HAYC's documented shape; include extra details in message.
-            message: [
-              subject.trim() ? `Subject: ${subject.trim()}` : '',
-              phone.trim() ? `Phone: ${phone.trim()}` : '',
-              newsletterSubscribe ? `Newsletter: yes` : '',
-              mode === 'cf7-service' || mode === 'cf7-home-contact'
-                ? (haycTags ?? []).length
-                  ? `Tags: ${(haycTags ?? []).join(', ')}`
-                  : ''
-                : '',
-              message.trim(),
-            ]
-              .filter(Boolean)
-              .join('\n'),
+            message: message.trim(),
             _hp: hp,
           }),
         });
-        if (!res.ok) {
-          const details = await res.text().catch(() => '');
-          let devErrorDetail = '';
-          try {
-            const parsed = JSON.parse(details) as { error?: string };
-            if (parsed?.error) devErrorDetail = parsed.error;
-          } catch {
-            // ignore non-JSON errors
-          }
-          console.error('[ContactForm] submit failed', {
-            status: res.status,
-            statusText: res.statusText,
-            details: details?.slice?.(0, 500),
-            endpoint,
-            apiUrl,
-            siteId,
-          });
-
-          // In dev, surface the backend reason to avoid guesswork.
-          if (import.meta.env.DEV) {
-            const msg = devErrorDetail || details || res.statusText || 'Request failed';
-            setError(`${t(labels.errorText)} (${res.status}: ${msg})`);
-            return;
-          }
-
-          throw new Error('Request failed');
-        }
+        if (!res.ok) throw new Error('Request failed');
         setSubmitted(true);
       } catch {
         setError(t(labels.errorText));
@@ -236,29 +91,25 @@ export function ContactForm({
         setLoading(false);
       }
     },
-    [
-      apiUrl,
-      siteId,
-      mode,
-      name,
-      firstName,
-      email,
-      phone,
-      subject,
-      message,
-      newsletterSubscribe,
-      haycTags,
-      hp,
-      validate,
-      t,
-      labels,
-      config.footerConfig.contactEmail,
-    ]
+    [apiUrl, siteId, name, email, message, hp, validate, t]
   );
 
   if (submitted) {
     return (
       <>
+        <style>{`
+          .contact-form-success { text-align: center; }
+          .contact-form-success h3 {
+            margin: 0 0 0.5rem;
+            font-size: 1.125rem;
+            font-weight: 600;
+          }
+          .contact-form-success p {
+            margin: 0;
+            font-size: 0.875rem;
+            color: #71717a;
+          }
+        `}</style>
         <div className="contact-form-success">
           <h3>{t(labels.successTitle)}</h3>
           <p>{t(labels.successText)}</p>
@@ -268,7 +119,74 @@ export function ContactForm({
   }
 
   return (
-    <form onSubmit={handleSubmit} className="wpcf7" noValidate>
+    <>
+      <style>{`
+        .contact-form {
+          display: flex;
+          flex-direction: column;
+          gap: 1rem;
+        }
+        .contact-form-field {
+          display: flex;
+          flex-direction: column;
+          gap: 0.5rem;
+        }
+        .contact-form-label {
+          font-size: 0.875rem;
+          font-weight: 500;
+        }
+        .contact-form-input,
+        .contact-form-textarea {
+          width: 100%;
+          box-sizing: border-box;
+          padding: 0.5rem 0.75rem;
+          font: inherit;
+          font-size: 1rem;
+          line-height: 1.5;
+          border: 1px solid #d4d4d8;
+          border-radius: 0.375rem;
+          background: #fff;
+          color: inherit;
+        }
+        .contact-form-textarea {
+          min-height: 6rem;
+          resize: vertical;
+        }
+        .contact-form-input:disabled,
+        .contact-form-textarea:disabled {
+          opacity: 0.6;
+          cursor: not-allowed;
+        }
+        .contact-form-input[aria-invalid="true"],
+        .contact-form-textarea[aria-invalid="true"] {
+          border-color: #dc2626;
+        }
+        .contact-form-button {
+          width: 100%;
+          padding: 0.5rem 1rem;
+          font: inherit;
+          font-size: 1rem;
+          font-weight: 500;
+          cursor: pointer;
+          border: none;
+          border-radius: 0.375rem;
+          background: #18181b;
+          color: #fafafa;
+        }
+        .contact-form-button:hover:not(:disabled) {
+          background: #27272a;
+        }
+        .contact-form-button:disabled {
+          opacity: 0.6;
+          cursor: not-allowed;
+        }
+        .contact-form-error {
+          margin: 0;
+          font-size: 0.875rem;
+          color: #dc2626;
+        }
+      `}</style>
+      <form onSubmit={handleSubmit} className="contact-form" noValidate>
         <input
           type="text"
           name="_hp"
@@ -280,57 +198,37 @@ export function ContactForm({
           aria-hidden
         />
 
-        {mode === 'basic' ? (
-          <label htmlFor="contact-name">
-              {t(labels.nameLabel)}
-            <input
-              id="contact-name"
-              type="text"
-              value={name}
-              onChange={(e) => {
-                setName(e.target.value);
-                if (fieldErrors.name) setFieldErrors((prev) => ({ ...prev, name: undefined }));
-              }}
-              disabled={loading}
-              aria-invalid={!!fieldErrors.name}
-              aria-describedby={fieldErrors.name ? 'contact-name-error' : undefined}
-              autoComplete="name"
-            />
-            {fieldErrors.name && (
-              <p id="contact-name-error" className="contact-form-error">
-                {fieldErrors.name}
-              </p>
-            )}
+        <div className="contact-form-field">
+          <label className="contact-form-label" htmlFor="contact-name">
+            {t(labels.nameLabel)}
           </label>
-        ) : (
-          <label htmlFor="contact-first-name">
-              {t(labels.firstNameLabel)}
-            <input
-              id="contact-first-name"
-              type="text"
-              value={firstName}
-              onChange={(e) => {
-                setFirstName(e.target.value);
-                if (fieldErrors.firstName)
-                  setFieldErrors((prev) => ({ ...prev, firstName: undefined }));
-              }}
-              disabled={loading}
-              aria-invalid={!!fieldErrors.firstName}
-              aria-describedby={fieldErrors.firstName ? 'contact-first-name-error' : undefined}
-              autoComplete="name"
-            />
-            {fieldErrors.firstName && (
-              <p id="contact-first-name-error" className="contact-form-error">
-                {fieldErrors.firstName}
-              </p>
-            )}
-          </label>
-        )}
+          <input
+            id="contact-name"
+            className="contact-form-input"
+            type="text"
+            value={name}
+            onChange={(e) => {
+              setName(e.target.value);
+              if (fieldErrors.name) setFieldErrors((prev) => ({ ...prev, name: undefined }));
+            }}
+            disabled={loading}
+            aria-invalid={!!fieldErrors.name}
+            aria-describedby={fieldErrors.name ? 'contact-name-error' : undefined}
+          />
+          {fieldErrors.name && (
+            <p id="contact-name-error" className="contact-form-error">
+              {fieldErrors.name}
+            </p>
+          )}
+        </div>
 
-        <label htmlFor="contact-email">
+        <div className="contact-form-field">
+          <label className="contact-form-label" htmlFor="contact-email">
             {t(labels.emailLabel)}
+          </label>
           <input
             id="contact-email"
+            className="contact-form-input"
             type="email"
             value={email}
             onChange={(e) => {
@@ -340,91 +238,21 @@ export function ContactForm({
             disabled={loading}
             aria-invalid={!!fieldErrors.email}
             aria-describedby={fieldErrors.email ? 'contact-email-error' : undefined}
-            autoComplete="email"
           />
           {fieldErrors.email && (
             <p id="contact-email-error" className="contact-form-error">
               {fieldErrors.email}
             </p>
           )}
-        </label>
+        </div>
 
-        {mode === 'cf7-service' && (
-          <>
-            <label htmlFor="contact-phone">
-                {t(labels.phoneLabel)}
-              <input
-                id="contact-phone"
-                type="tel"
-                value={phone}
-                onChange={(e) => {
-                  setPhone(e.target.value);
-                  if (fieldErrors.phone) setFieldErrors((prev) => ({ ...prev, phone: undefined }));
-                }}
-                disabled={loading}
-                aria-invalid={!!fieldErrors.phone}
-                aria-describedby={fieldErrors.phone ? 'contact-phone-error' : undefined}
-                autoComplete="tel"
-              />
-              {fieldErrors.phone && (
-                <p id="contact-phone-error" className="contact-form-error">
-                  {fieldErrors.phone}
-                </p>
-              )}
-            </label>
-
-            <label htmlFor="contact-subject">
-                {t(labels.subjectLabel)}
-              <input
-                id="contact-subject"
-                type="text"
-                value={subject}
-                onChange={(e) => {
-                  setSubject(e.target.value);
-                  if (fieldErrors.subject)
-                    setFieldErrors((prev) => ({ ...prev, subject: undefined }));
-                }}
-                disabled={loading}
-                aria-invalid={!!fieldErrors.subject}
-                aria-describedby={fieldErrors.subject ? 'contact-subject-error' : undefined}
-              />
-              {fieldErrors.subject && (
-                <p id="contact-subject-error" className="contact-form-error">
-                  {fieldErrors.subject}
-                </p>
-              )}
-            </label>
-          </>
-        )}
-
-        {mode === 'cf7-home-contact' && (
-          <label htmlFor="contact-subject">
-              {t(labels.subjectLabel)}
-            <input
-              id="contact-subject"
-              type="text"
-              value={subject}
-              onChange={(e) => {
-                setSubject(e.target.value);
-                if (fieldErrors.subject)
-                  setFieldErrors((prev) => ({ ...prev, subject: undefined }));
-              }}
-              disabled={loading}
-              aria-invalid={!!fieldErrors.subject}
-              aria-describedby={fieldErrors.subject ? 'contact-subject-error' : undefined}
-            />
-            {fieldErrors.subject && (
-              <p id="contact-subject-error" className="contact-form-error">
-                {fieldErrors.subject}
-              </p>
-            )}
-          </label>
-        )}
-
-        <label htmlFor="contact-message">
+        <div className="contact-form-field">
+          <label className="contact-form-label" htmlFor="contact-message">
             {t(labels.messageLabel)}
+          </label>
           <textarea
             id="contact-message"
+            className="contact-form-textarea"
             value={message}
             onChange={(e) => {
               setMessage(e.target.value);
@@ -440,26 +268,9 @@ export function ContactForm({
               {fieldErrors.message}
             </p>
           )}
-        </label>
+        </div>
 
-        {(mode === 'cf7-service' || mode === 'cf7-home-contact') && (
-          <div className="field mt-2">
-            <input
-              id="newsletter-subscribe"
-              type="checkbox"
-              checked={newsletterSubscribe}
-              onChange={(e) => setNewsletterSubscribe(e.target.checked)}
-              disabled={loading}
-            />
-            <label htmlFor="newsletter-subscribe" style={{ marginLeft: 8 }}>
-              {t(labels.newsletterLabel)}
-            </label>
-            {/* Hidden tag to match CF7 */}
-            <input type="hidden" name="hayc-tags" value={(haycTags ?? []).join(', ')} />
-          </div>
-        )}
-
-        <button type="submit" disabled={loading}>
+        <button type="submit" className="contact-form-button" disabled={loading}>
           {loading ? t(labels.submitting) : t(labels.submitButton)}
         </button>
 
@@ -469,5 +280,6 @@ export function ContactForm({
           </p>
         )}
       </form>
+    </>
   );
 }
